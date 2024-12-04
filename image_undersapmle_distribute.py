@@ -6,9 +6,9 @@ from PIL import Image
 
 # Path to the parent directory containing subdirectories with images
 parent_dir = '/home/quad/dataset/train'
-target_dir = '/home/quad/autotest_dataset_1200'
+target_dir = '/home/quad/autotest_dataset_2500'
 # Target number of images per folder (for undersampling)
-target_num = 1200  # You can change this number as needed
+target_num = 2500  # You can change this number as needed
 
 # Split percentages for train, test, and val
 train_pct = 0.8

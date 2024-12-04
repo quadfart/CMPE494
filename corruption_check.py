@@ -22,5 +22,5 @@ def check_images_with_tensorflow(directory):
 
 
 # Path to your dataset
-dataset_directory = '/home/quad/autotest_dataset_1200'
+dataset_directory = '/home/quad/dataset'
 check_images_with_tensorflow(dataset_directory)

@@ -14,7 +14,7 @@ import time
 
 # Parameters
 IMG_SIZE = (224,224)  # Image input size for models
-BATCH_SIZE = 64  # Batch size for training and evaluation
+BATCH_SIZE = 128  # Batch size for training and evaluation
 EPOCHS = 15  # Number of epochs for training
 FINE_TUNE_EPOCHS = 0  # Additional epochs for fine-tuning
 MODELS = {
@@ -27,13 +27,13 @@ MODELS = {
 }
 
 # Dataset directories
-train_dir = "/home/quad/autotest_dataset_1200/train"
-val_dir = "/home/quad/autotest_dataset_1200/val"
-test_dir = "/home/quad/autotest_dataset_1200/test"
+train_dir = "/home/quad/autotest_dataset_2500/train"
+val_dir = "/home/quad/autotest_dataset_2500/val"
+test_dir = "/home/quad/autotest_dataset_2500/test"
 
 # Model save path
-model_save_dir = "/home/quad/autotest_dataset_1200/models"
-log_dir = "/home/quad/autotest_dataset_1200/models/logs/fit"
+model_save_dir = "/home/quad/autotest_dataset_2500/models"
+log_dir = "/home/quad/autotest_dataset_2500/models/logs/fit"
 os.makedirs(log_dir, exist_ok=True)
 os.makedirs(model_save_dir, exist_ok=True)
 
