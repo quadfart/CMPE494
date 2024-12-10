@@ -2,7 +2,7 @@ from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
 
-from tensor.preprocess import train_generator, validation_generator, test_generator
+from Tensorflow.tensor.preprocess import train_generator, validation_generator, test_generator
 
 # Load pre-trained MobileNetV2 model without the top layer
 base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
