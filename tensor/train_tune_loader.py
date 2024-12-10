@@ -9,13 +9,12 @@ import numpy as np
 import os
 import time
 import signal
-import sys
 
 # Parameters
 IMG_SIZE = (224, 224)  # Image input size for the model
-BATCH_SIZE = 256  # Batch size for training and evaluation
+BATCH_SIZE = 128  # Batch size for training and evaluation
 EPOCHS = 50  # Number of epochs for training
-FINE_TUNE_EPOCHS = 0  # Additional epochs for fine-tuning
+FINE_TUNE_EPOCHS = 20  # Additional epochs for fine-tuning
 train_dir = "/home/quad/dataset_6000/train"
 val_dir = "/home/quad/dataset_6000/val"
 test_dir = "/home/quad/dataset_6000/test"
@@ -52,7 +51,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
 
 # Callbacks
 tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
-model_checkpoint_callback = ModelCheckpoint(
+best_model_checkpoint = ModelCheckpoint(
     filepath=os.path.join(model_save_dir, "best_model.keras"),
     save_best_only=True,
     monitor="val_accuracy",
@@ -67,7 +66,6 @@ class ManualSaveStopCallback(Callback):
         self.stop_training = False
 
     def on_epoch_end(self, epoch, logs=None):
-        # Check for manual save request
         if self.stop_training:
             print("\n[INFO] Manual stop requested. Saving model and exiting...")
             model_save_path = os.path.join(self.model_save_dir, f"manual_stop_model_epoch_{epoch + 1}.keras")
@@ -90,8 +88,13 @@ history = model.fit(
     train_generator,
     epochs=EPOCHS,
     validation_data=validation_generator,
-    callbacks=[tensorboard_callback, model_checkpoint_callback, manual_callback]
+    callbacks=[tensorboard_callback, best_model_checkpoint, manual_callback]
 )
+
+# Save the final model after training
+final_model_path = os.path.join(model_save_dir, "final_model_epoch_50.keras")
+model.save(final_model_path)
+print(f"[INFO] Final model saved to: {final_model_path}")
 
 # Fine-tuning
 print("\n[INFO] Starting fine-tuning...")
@@ -103,8 +106,13 @@ fine_tune_history = model.fit(
     train_generator,
     epochs=FINE_TUNE_EPOCHS,
     validation_data=validation_generator,
-    callbacks=[tensorboard_callback, model_checkpoint_callback, manual_callback]
+    callbacks=[tensorboard_callback, best_model_checkpoint, manual_callback]
 )
+
+# Save the final fine-tuned model
+final_fine_tuned_model_path = os.path.join(model_save_dir, "final_fine_tuned_model.keras")
+model.save(final_fine_tuned_model_path)
+print(f"[INFO] Final fine-tuned model saved to: {final_fine_tuned_model_path}")
 
 # Evaluate on the test set
 print("\n[INFO] Evaluating on the test set...")
