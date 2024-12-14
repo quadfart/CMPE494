@@ -8,12 +8,16 @@ environment:
   sdk: '>=3.4.4 <4.0.0'
 
 dependencies:
+  tflite_flutter: ^0.10.0
   flutter:
     sdk: flutter
+  http: ^1.2.2    
+  meta: ^1.15.0  # Flutter SDK ile uyumlu olan güncel sürüm
   cupertino_icons: ^1.0.6
   path: 1.9.0 # Flutter_test ile uyumlu olan sürüm
-  meta: 1.12.0 # Flutter SDK ile uyumlu olan sürüm
   image_picker: ^1.1.2
+  shared_preferences: ^2.3.3
+  intl: ^0.20.1
 
 dev_dependencies:
   flutter_test:
@@ -24,4 +28,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-
+  assets:
+    - assets/images/
+    - assets/model.tflite

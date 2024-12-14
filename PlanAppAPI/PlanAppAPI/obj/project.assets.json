@@ -1591,20 +1591,20 @@
     ]
   },
   "packageFolders": {
-    "/home/quad/.nuget/packages/": {}
+    "C:\\Users\\Sevval\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/PlanAppAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\PlanAppAPI\\PlanAppAPI.csproj",
       "projectName": "PlanAppAPI",
-      "projectPath": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/PlanAppAPI.csproj",
-      "packagesPath": "/home/quad/.nuget/packages/",
-      "outputPath": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/obj/",
+      "projectPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\PlanAppAPI\\PlanAppAPI.csproj",
+      "packagesPath": "C:\\Users\\Sevval\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\PlanAppAPI\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
-        "/home/quad/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Sevval\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1616,8 +1616,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/quad/CMPE494/PlanAppAPI/Persistence/Persistence.csproj": {
-              "projectPath": "/home/quad/CMPE494/PlanAppAPI/Persistence/Persistence.csproj"
+            "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -1678,7 +1678,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/7.0.410/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.410\\RuntimeIdentifierGraph.json"
       }
     }
   }

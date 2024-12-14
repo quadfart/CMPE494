@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
+import 'process.dart'; // Process ekranını import ettik
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({Key? key}) : super(key: key);
@@ -55,7 +56,13 @@ class _CameraScreenState extends State<CameraScreen> {
     if (_cameraController != null && _cameraController!.value.isInitialized) {
       final XFile? photo = await _cameraController?.takePicture();
       if (photo != null) {
-        Navigator.pop(context, photo.path); // Fotoğraf yolunu geri döndürüyoruz
+        // Fotoğraf çekildikten sonra Process ekranına yönlendiriyoruz
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProcessScreen(photoPath: photo.path),
+          ),
+        );
       }
     }
   }
@@ -64,7 +71,12 @@ class _CameraScreenState extends State<CameraScreen> {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      Navigator.pop(context, image.path); // Galeriden seçilen fotoğraf yolunu döndürüyoruz
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ProcessScreen(photoPath: image.path),
+        ),
+      );
     }
   }
 

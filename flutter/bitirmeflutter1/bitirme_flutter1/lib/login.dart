@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
+import 'services/api_service.dart';
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key}); // super.key ekleyerek hatayı düzelttik
+  LoginScreen({super.key});
 
-  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class LoginScreen extends StatelessWidget {
               Column(
                 children: [
                   Image.asset(
-                    'assets/logo.png', // Logo dosya yolu
+                    'assets/images/logo.png', // Logo dosya yolu
                     height: 100,
                   ),
                   const SizedBox(height: 10),
@@ -45,9 +47,9 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 40),
               // Kullanıcı Adı Alanı
               TextField(
-                controller: userNameController,
+                controller: emailController,
                 decoration: InputDecoration(
-                  labelText: "Enter Username",
+                  labelText: "Enter E-mail",
                   prefixIcon: const Icon(Icons.person),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -57,6 +59,7 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 20),
               // Şifre Alanı
               TextField(
+                controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Password",
@@ -72,13 +75,17 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
-                    // HomePage'e geçiş ve kullanıcı adını gönderme
+                  onPressed: () async {
+                    // API çağrısı
+                    final response = await ApiService.login(
+                      emailController.text,
+                      passwordController.text,
+                    );
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            HomePage(userName: userNameController.text),
+                        builder: (context) => HomePage(),
                       ),
                     );
                   },
