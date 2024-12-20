@@ -5,9 +5,9 @@ import 'identify.ident.dart';
 import 'plantDetailsScreen.dart';
 
 class HomePage extends StatefulWidget {
-  final String userName;
+  final String? email;
 
-  const HomePage({Key? key, required this.userName}) : super(key: key);
+  const HomePage({Key? key, this.email}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: [
                   Image.asset(
-                    'assets/logo.png',
+                    'assets/images/logo.png',
                     height: 100,
                   ),
                   const SizedBox(height: 10),
@@ -69,6 +69,7 @@ class _HomePageState extends State<HomePage> {
                     );
                     if (result != null && result is Map<String, String>) {
                       addPlant(result);
+                      debugPrint("Plant added: $result");
                     }
                   }
                 },
@@ -196,7 +197,7 @@ class _HomePageState extends State<HomePage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => HomePage(userName: widget.userName),
+                builder: (context) => HomePage(email: widget.email),
               ),
             );
           } else if (index == 1) {
@@ -214,6 +215,7 @@ class _HomePageState extends State<HomePage> {
               );
               if (result != null && result is Map<String, String>) {
                 addPlant(result);
+                debugPrint("Plant added to list: $result");
               }
             }
           } else if (index == 2) {
@@ -236,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "Name: ${widget.userName}",
+                          "Name: ${widget.email}",
                           style: const TextStyle(fontSize: 18),
                         ),
                         const SizedBox(height: 10),

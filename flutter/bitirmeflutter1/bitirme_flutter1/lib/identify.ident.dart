@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'dart:io';
 import 'success_screen.dart'; // Success ekranını import edin
 
@@ -13,7 +14,6 @@ class IdentifyPlantScreen extends StatefulWidget {
 
 class _IdentifyPlantScreenState extends State<IdentifyPlantScreen> {
   String plantName = "Mint"; // Geçici olarak sabit bitki adı
-  String description = ""; // Kullanıcı tarafından girilecek açıklama
   DateTime? selectedDate;
   TimeOfDay? selectedTime;
 
@@ -25,7 +25,7 @@ class _IdentifyPlantScreenState extends State<IdentifyPlantScreen> {
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
     );
-    if (pickedDate != null && pickedDate != selectedDate) {
+    if (pickedDate != null) {
       setState(() {
         selectedDate = pickedDate;
       });
@@ -47,13 +47,14 @@ class _IdentifyPlantScreenState extends State<IdentifyPlantScreen> {
 
   // Save butonu fonksiyonu
   void savePlant() {
-    Navigator.pop(context, {
+    // Veriyi Navigator.pop ile geri döndür
+    final plantData = {
       "plantName": plantName,
-      "description": description,
       "photoPath": widget.photoPath,
       "selectedDate": selectedDate?.toIso8601String(),
       "selectedTime": selectedTime?.format(context),
-    });
+    };
+    Navigator.pop(context, plantData); // Veriyi döndür
 
     // Success ekranına yönlendirme
     Navigator.push(
@@ -64,6 +65,9 @@ class _IdentifyPlantScreenState extends State<IdentifyPlantScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String formattedDate = selectedDate != null
+        ? DateFormat('yyyy-MM-dd').format(selectedDate!)
+        : "Select Date";
     return Scaffold(
       appBar: AppBar(
         title: const Text("Identify Plant"),
@@ -109,29 +113,12 @@ class _IdentifyPlantScreenState extends State<IdentifyPlantScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              "Description",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 5),
-            TextField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Enter a description for the plant...",
-              ),
-              onChanged: (value) {
-                setState(() {
-                  description = value;
-                });
-              },
-            ),
-            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  selectedDate != null
-                      ? "Date: ${selectedDate!.toLocal()}".split(' ')[0]
+                  formattedDate != null
+                      ? "Date: $formattedDate"
                       : "Select Date",
                   style: const TextStyle(fontSize: 16),
                 ),

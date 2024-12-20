@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
       ),
       home: LoginScreen(),
       routes: {
-        '/home': (context) => const HomePage(userName: 'Default User'), // Default kullanıcı adı verildi
+        '/home': (context) => const HomePage(
+            email: 'Default User'), // Default kullanıcı adı verildi
       },
     );
   }
