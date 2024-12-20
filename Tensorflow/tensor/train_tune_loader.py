@@ -2,24 +2,22 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
-from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint, Callback
+from tensorflow.keras.callbacks import TensorBoard, EarlyStopping, Callback
 import tensorflow as tf
 from sklearn.metrics import classification_report, confusion_matrix
 import numpy as np
 import os
 import time
-import signal
 
 # Parameters
 IMG_SIZE = (224, 224)  # Image input size for the model
 BATCH_SIZE = 128  # Batch size for training and evaluation
-EPOCHS = 50  # Number of epochs for training
-FINE_TUNE_EPOCHS = 20  # Additional epochs for fine-tuning
+EPOCHS = 10  # Number of epochs for training (set to 10 max)
 train_dir = "/home/quad/dataset_6000/train"
 val_dir = "/home/quad/dataset_6000/val"
 test_dir = "/home/quad/dataset_6000/test"
-model_save_dir = "/home/quad/dataset_6000/models"
-log_dir = "/home/quad/dataset_6000/models/logs/fit"
+model_save_dir = "/home/quad/retrain_dataset_6000/models"
+log_dir = "/home/quad/retrain_dataset_6000/models/logs/fit"
 os.makedirs(log_dir, exist_ok=True)
 os.makedirs(model_save_dir, exist_ok=True)
 
@@ -51,36 +49,24 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
 
 # Callbacks
 tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
-best_model_checkpoint = ModelCheckpoint(
-    filepath=os.path.join(model_save_dir, "best_model.keras"),
-    save_best_only=True,
-    monitor="val_accuracy",
-    mode="max"
+early_stopping_callback = EarlyStopping(
+    monitor='val_accuracy',
+    patience=2,  # Stop training if validation accuracy doesn't improve after 2 epochs
+    restore_best_weights=True
 )
 
-# Custom Callback for Manual Save and Stop
-class ManualSaveStopCallback(Callback):
+# Callback to save the model after each epoch
+class SaveModelEveryEpochCallback(Callback):
     def __init__(self, model_save_dir):
         super().__init__()
         self.model_save_dir = model_save_dir
-        self.stop_training = False
 
     def on_epoch_end(self, epoch, logs=None):
-        if self.stop_training:
-            print("\n[INFO] Manual stop requested. Saving model and exiting...")
-            model_save_path = os.path.join(self.model_save_dir, f"manual_stop_model_epoch_{epoch + 1}.keras")
-            self.model.save(model_save_path)
-            print(f"[INFO] Model saved to: {model_save_path}")
-            self.model.stop_training = True
+        model_save_path = os.path.join(self.model_save_dir, f"model_epoch_{epoch + 1}.keras")
+        self.model.save(model_save_path)
+        print(f"[INFO] Model saved to: {model_save_path}")
 
-# Handle manual interruption
-def handle_interrupt(signal, frame):
-    print("\n[INFO] Ctrl+C detected. Stopping training at the end of the current epoch...")
-    manual_callback.stop_training = True
-
-signal.signal(signal.SIGINT, handle_interrupt)
-
-manual_callback = ManualSaveStopCallback(model_save_dir)
+save_model_callback = SaveModelEveryEpochCallback(model_save_dir)
 
 # Train the model
 print("\n[INFO] Starting training...")
@@ -88,31 +74,14 @@ history = model.fit(
     train_generator,
     epochs=EPOCHS,
     validation_data=validation_generator,
-    callbacks=[tensorboard_callback, best_model_checkpoint, manual_callback]
+    callbacks=[tensorboard_callback, early_stopping_callback, save_model_callback]
 )
 
-# Save the final model after training
-final_model_path = os.path.join(model_save_dir, "final_model_epoch_50.keras")
-model.save(final_model_path)
-print(f"[INFO] Final model saved to: {final_model_path}")
-
-# Fine-tuning
-print("\n[INFO] Starting fine-tuning...")
-model.trainable = True
-model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-5),
-              loss="categorical_crossentropy", metrics=["accuracy"])
-
-fine_tune_history = model.fit(
-    train_generator,
-    epochs=FINE_TUNE_EPOCHS,
-    validation_data=validation_generator,
-    callbacks=[tensorboard_callback, best_model_checkpoint, manual_callback]
-)
-
-# Save the final fine-tuned model
-final_fine_tuned_model_path = os.path.join(model_save_dir, "final_fine_tuned_model.keras")
-model.save(final_fine_tuned_model_path)
-print(f"[INFO] Final fine-tuned model saved to: {final_fine_tuned_model_path}")
+# Save the model at the best epoch (with highest val_accuracy)
+best_epoch = np.argmax(history.history['val_accuracy'])  # Epoch with the best validation accuracy
+best_model_path = os.path.join(model_save_dir, f"best_model_epoch_{best_epoch + 1}.keras")
+model.save(best_model_path)
+print(f"[INFO] Best model saved to: {best_model_path}")
 
 # Evaluate on the test set
 print("\n[INFO] Evaluating on the test set...")

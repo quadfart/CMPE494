@@ -1602,7 +1602,6 @@
       "packagesPath": "/home/quad/.nuget/packages/",
       "outputPath": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/obj/",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "/home/quad/.nuget/NuGet/NuGet.Config"
       ],

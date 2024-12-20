@@ -13,7 +13,6 @@
         "packagesPath": "/home/quad/.nuget/packages/",
         "outputPath": "/home/quad/CMPE494/PlanAppAPI/Domain/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/home/quad/.nuget/NuGet/NuGet.Config"
         ],
@@ -67,7 +66,6 @@
         "packagesPath": "/home/quad/.nuget/packages/",
         "outputPath": "/home/quad/CMPE494/PlanAppAPI/Persistence/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/home/quad/.nuget/NuGet/NuGet.Config"
         ],
@@ -137,7 +135,6 @@
         "packagesPath": "/home/quad/.nuget/packages/",
         "outputPath": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/home/quad/.nuget/NuGet/NuGet.Config"
         ],

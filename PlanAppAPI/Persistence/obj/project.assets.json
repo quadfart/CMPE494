@@ -1016,7 +1016,6 @@
       "packagesPath": "/home/quad/.nuget/packages/",
       "outputPath": "/home/quad/CMPE494/PlanAppAPI/Persistence/obj/",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "/home/quad/.nuget/NuGet/NuGet.Config"
       ],
