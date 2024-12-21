@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
-import 'success_screen.dart'; // Success ekranını import edin
+import 'success_screen.dart';
 
 class IdentifyPlantScreen extends StatefulWidget {
   final String photoPath;

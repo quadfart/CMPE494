@@ -1,13 +1,15 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'camera_screen.dart';
 import 'identify.ident.dart';
 import 'plantDetailsScreen.dart';
+import 'profile.dart';
 
 class HomePage extends StatefulWidget {
-  final String? email;
+  final Map<String, dynamic>? user; // Updated to dynamic to handle any API structure
 
-  const HomePage({Key? key, this.email}) : super(key: key);
+  const HomePage({Key? key, this.user}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -24,6 +26,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final userName = widget.user?['name'] ?? 'Guest'; // Safely access user data
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -40,12 +44,20 @@ class _HomePageState extends State<HomePage> {
                     height: 100,
                   ),
                   const SizedBox(height: 10),
+                  Text(
+                    "Welcome, $userName!",
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
                   const Text(
                     "Enjoy the smart irrigation system!",
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
@@ -81,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -101,85 +113,85 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 10),
               myPlants.isEmpty
                   ? const Center(
-                      child: Text(
-                        "No plants added yet.",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    )
+                child: Text(
+                  "No plants added yet.",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              )
                   : ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: myPlants.length,
-                      itemBuilder: (context, index) {
-                        final plant = myPlants[index];
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    PlantDetailsScreen(plantData: plant),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.only(bottom: 15),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  blurRadius: 5,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: myPlants.length,
+                itemBuilder: (context, index) {
+                  final plant = myPlants[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              PlantDetailsScreen(plantData: plant),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 15),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2),
+                            blurRadius: 5,
+                            spreadRadius: 2,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: plant["photoPath"] != null
+                                ? Image.file(
+                              File(plant["photoPath"]!),
+                              height: 100,
+                              width: 100,
+                              fit: BoxFit.cover,
+                            )
+                                : const Icon(Icons.image,
+                                size: 100, color: Colors.grey),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.start,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: plant["photoPath"] != null
-                                      ? Image.file(
-                                          File(plant["photoPath"]!),
-                                          height: 100,
-                                          width: 100,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : const Icon(Icons.image,
-                                          size: 100, color: Colors.grey),
+                                Text(
+                                  plant["plantName"] ?? "Unknown Plant",
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        plant["plantName"] ?? "Unknown Plant",
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 5),
-                                      Text(
-                                        plant["description"] ?? "",
-                                        style: const TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ],
+                                const SizedBox(height: 5),
+                                Text(
+                                  plant["description"] ?? "",
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        );
-                      },
+                        ],
+                      ),
                     ),
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -192,67 +204,13 @@ class _HomePageState extends State<HomePage> {
         ],
         selectedItemColor: Colors.green,
         unselectedItemColor: Colors.grey,
-        onTap: (index) async {
-          if (index == 0) {
-            Navigator.pushReplacement(
+        onTap: (index) {
+          if (index == 2) {
+            Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HomePage(email: widget.email),
+                builder: (context) => ProfilePage(user: widget.user ?? {}),
               ),
-            );
-          } else if (index == 1) {
-            final photoPath = await Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CameraScreen()),
-            );
-            if (photoPath != null) {
-              final result = await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      IdentifyPlantScreen(photoPath: photoPath),
-                ),
-              );
-              if (result != null && result is Map<String, String>) {
-                addPlant(result);
-                debugPrint("Plant added to list: $result");
-              }
-            }
-          } else if (index == 2) {
-            showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return Container(
-                  height: 200,
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "User Profile",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "Name: ${widget.email}",
-                          style: const TextStyle(fontSize: 18),
-                        ),
-                        const SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pop(context); // Profil ekranını kapat
-                          },
-                          child: const Text("Close"),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
             );
           }
         },

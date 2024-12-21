@@ -1591,19 +1591,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sevval\\.nuget\\packages\\": {}
+    "/home/quad/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\PlanAppAPI\\PlanAppAPI.csproj",
+      "projectUniqueName": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/PlanAppAPI.csproj",
       "projectName": "PlanAppAPI",
-      "projectPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\PlanAppAPI\\PlanAppAPI.csproj",
-      "packagesPath": "C:\\Users\\Sevval\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\PlanAppAPI\\obj\\",
+      "projectPath": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/PlanAppAPI.csproj",
+      "packagesPath": "/home/quad/.nuget/packages/",
+      "outputPath": "/home/quad/CMPE494/PlanAppAPI/PlanAppAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sevval\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/quad/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1615,8 +1615,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Persistence\\Persistence.csproj"
+            "/home/quad/CMPE494/PlanAppAPI/Persistence/Persistence.csproj": {
+              "projectPath": "/home/quad/CMPE494/PlanAppAPI/Persistence/Persistence.csproj"
             }
           }
         }
@@ -1677,7 +1677,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/7.0.410/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Sevval\\.nuget\\packages\\": {}
+    "/home/quad/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Domain\\Domain.csproj",
+      "projectUniqueName": "/home/quad/CMPE494/PlanAppAPI/Domain/Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\Sevval\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Domain\\obj\\",
+      "projectPath": "/home/quad/CMPE494/PlanAppAPI/Domain/Domain.csproj",
+      "packagesPath": "/home/quad/.nuget/packages/",
+      "outputPath": "/home/quad/CMPE494/PlanAppAPI/Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sevval\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/quad/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/7.0.410/RuntimeIdentifierGraph.json"
       }
     }
   }

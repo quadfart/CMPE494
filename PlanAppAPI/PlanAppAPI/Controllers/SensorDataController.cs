@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PlanAppAPI.Applications.SensorData.AddSensorData;
 using PlanAppAPI.Applications.SensorData.AddSensorData.Dtos;
@@ -14,7 +15,7 @@ namespace PlanAppAPI.Controllers;
 
 [Produces("application/json")]
 [Route("api/[controller]/[action]")]
-public class SensorDataController(IServiceProvider services) : BaseApiController(services)
+public class SensorDataController(IMediator services) : BaseApiController(services)
 {
     [HttpPost]
     public async Task<ActionResult> AddSensorDataAsync([FromBody] AddSensorDataRequestModel request)

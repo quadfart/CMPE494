@@ -1,27 +1,21 @@
+import 'package:bitirme_flutter1/welcome_page.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
-import 'homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.clear();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PlantIdent',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: LoginScreen(),
-      routes: {
-        '/home': (context) => const HomePage(
-            email: 'Default User'), // Default kullanıcı adı verildi
-      },
+      home: WelcomePage(), // Replace with your login logic if applicable.
     );
   }
 }

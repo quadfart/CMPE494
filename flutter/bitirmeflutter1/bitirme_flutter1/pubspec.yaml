@@ -5,25 +5,26 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.4 <4.0.0'
+  sdk: '^3.6.0'
 
 dependencies:
-  tflite_flutter: ^0.10.0
   flutter:
     sdk: flutter
-  http: ^1.2.2    
-  meta: ^1.15.0  # Flutter SDK ile uyumlu olan güncel sürüm
-  cupertino_icons: ^1.0.6
-  path: 1.9.0 # Flutter_test ile uyumlu olan sürüm
-  image_picker: ^1.1.2
-  shared_preferences: ^2.3.3
-  intl: ^0.20.1
+  tflite_flutter: '^0.11.0'
+  http: any
+  meta: any
+  cupertino_icons: any
+  path: any
+  image_picker: any
+  shared_preferences: any
+  intl: any
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  camera: ^0.11.0+2  
-  flutter_lints: ^3.0.0
+  camera: any
+  flutter_lints: any
+
 
 flutter:
   uses-material-design: true

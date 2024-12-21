@@ -19,11 +19,11 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 80),
-              // Logo ve Başlık
+              // Logo and Title
               Column(
                 children: [
                   Image.asset(
-                    'assets/images/logo.png', // Logo dosya yolu
+                    'assets/images/logo.png', // Logo file path
                     height: 100,
                   ),
                   const SizedBox(height: 10),
@@ -45,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 40),
-              // Kullanıcı Adı Alanı
+              // Email Field
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // Şifre Alanı
+              // Password Field
               TextField(
                 controller: passwordController,
                 obscureText: true,
@@ -71,23 +71,35 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // Giriş Butonu
+              // Login Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
-                    // API çağrısı
+                    // API call
                     final response = await ApiService.login(
                       emailController.text,
                       passwordController.text,
                     );
 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
+                    if (response != null) {
+                      // Assuming you want to show user info on successful login
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Login Success"), backgroundColor: Colors.green),
+                      );
+
+                      // Navigate to HomePage and pass user data
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(user: response),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Login Failed"), backgroundColor: Colors.red),
+                      );
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 15),

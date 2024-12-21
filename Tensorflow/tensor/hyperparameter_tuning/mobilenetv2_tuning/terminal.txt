@@ -1,0 +1,678 @@
+/home/quad/CMPE494/.venv/bin/python /home/quad/CMPE494/Tensorflow/tensor/optmimizer.py
+2024-12-19 10:01:18.085839: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1734591678.114031   25192 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1734591678.122619   25192 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+Found 259200 images belonging to 54 classes.
+Found 32400 images belonging to 54 classes.
+Found 32400 images belonging to 54 classes.
+I0000 00:00:1734591688.971916   25192 gpu_device.cc:2022] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6263 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2080 SUPER, pci bus id: 0000:05:00.0, compute capability: 7.5
+
+Search: Running Trial #1
+
+Value             |Best Value So Far |Hyperparameter
+448               |448               |units
+0.4               |0.4               |dropout
+0.00013177        |0.00013177        |learning_rate
+
+/home/quad/CMPE494/.venv/lib/python3.12/site-packages/keras/src/trainers/data_adapters/py_dataset_adapter.py:121: UserWarning: Your `PyDataset` class should call `super().__init__(**kwargs)` in its constructor. `**kwargs` can include `workers`, `use_multiprocessing`, `max_queue_size`. Do not pass these arguments to `fit()`, as they will be ignored.
+  self._warn_if_super_not_called()
+Epoch 1/10
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1734591701.442003   25487 service.cc:148] XLA service 0x7c8a9c001720 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1734591701.442043   25487 service.cc:156]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 SUPER, Compute Capability 7.5
+2024-12-19 10:01:41.618228: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:268] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1734591702.719196   25487 cuda_dnn.cc:529] Loaded cuDNN version 90300
+I0000 00:00:1734591707.928660   25487 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.7801 - loss: 1.6531
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1206s 147ms/step - accuracy: 0.7801 - loss: 1.6530 - val_accuracy: 0.7600 - val_loss: 1.0283
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 139ms/step - accuracy: 0.8751 - loss: 0.4894
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1259s 155ms/step - accuracy: 0.8751 - loss: 0.4894 - val_accuracy: 0.7649 - val_loss: 1.0345
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8946 - loss: 0.4131
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1164s 144ms/step - accuracy: 0.8946 - loss: 0.4131 - val_accuracy: 0.7624 - val_loss: 1.0540
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 137ms/step - accuracy: 0.9085 - loss: 0.3564
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1239s 153ms/step - accuracy: 0.9085 - loss: 0.3564 - val_accuracy: 0.7633 - val_loss: 1.0674
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.7840 - loss: 1.6515
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1181s 144ms/step - accuracy: 0.7841 - loss: 1.6514 - val_accuracy: 0.7644 - val_loss: 1.0183
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 136ms/step - accuracy: 0.8811 - loss: 0.4817
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1232s 152ms/step - accuracy: 0.8811 - loss: 0.4817 - val_accuracy: 0.7637 - val_loss: 1.0291
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 132ms/step - accuracy: 0.8972 - loss: 0.4051
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1200s 148ms/step - accuracy: 0.8972 - loss: 0.4051 - val_accuracy: 0.7630 - val_loss: 1.0452
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.9090 - loss: 0.3533
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1164s 144ms/step - accuracy: 0.9090 - loss: 0.3533 - val_accuracy: 0.7614 - val_loss: 1.0799
+
+Trial 1 Complete [02h 40m 49s]
+val_accuracy: 0.764660507440567
+
+Best val_accuracy So Far: 0.764660507440567
+Total elapsed time: 02h 40m 49s
+
+Search: Running Trial #2
+
+Value             |Best Value So Far |Hyperparameter
+448               |448               |units
+0.3               |0.4               |dropout
+8.0391e-05        |0.00013177        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.7717 - loss: 1.9598
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1194s 146ms/step - accuracy: 0.7717 - loss: 1.9597 - val_accuracy: 0.7675 - val_loss: 1.0181
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8865 - loss: 0.4741
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1163s 144ms/step - accuracy: 0.8865 - loss: 0.4741 - val_accuracy: 0.7669 - val_loss: 1.0274
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.9011 - loss: 0.3973
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1160s 143ms/step - accuracy: 0.9011 - loss: 0.3973 - val_accuracy: 0.7682 - val_loss: 1.0348
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.9118 - loss: 0.3480
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1171s 145ms/step - accuracy: 0.9118 - loss: 0.3480 - val_accuracy: 0.7668 - val_loss: 1.0530
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.7621 - loss: 1.9699
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1191s 146ms/step - accuracy: 0.7622 - loss: 1.9698 - val_accuracy: 0.7624 - val_loss: 1.0339
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8853 - loss: 0.4766
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1179s 146ms/step - accuracy: 0.8853 - loss: 0.4766 - val_accuracy: 0.7685 - val_loss: 1.0192
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8995 - loss: 0.4017
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1188s 147ms/step - accuracy: 0.8995 - loss: 0.4017 - val_accuracy: 0.7669 - val_loss: 1.0418
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 132ms/step - accuracy: 0.9120 - loss: 0.3450
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1205s 149ms/step - accuracy: 0.9120 - loss: 0.3450 - val_accuracy: 0.7671 - val_loss: 1.0494
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.9212 - loss: 0.3076
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1177s 145ms/step - accuracy: 0.9212 - loss: 0.3077 - val_accuracy: 0.7667 - val_loss: 1.0796
+
+Trial 2 Complete [02h 57m 12s]
+val_accuracy: 0.7683796286582947
+
+Best val_accuracy So Far: 0.7683796286582947
+Total elapsed time: 05h 38m 01s
+
+Search: Running Trial #3
+
+Value             |Best Value So Far |Hyperparameter
+192               |448               |units
+0.2               |0.3               |dropout
+2.3127e-05        |8.0391e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.5209 - loss: 3.5266
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1203s 147ms/step - accuracy: 0.5209 - loss: 3.5265 - val_accuracy: 0.7563 - val_loss: 1.8437
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8530 - loss: 1.2138
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1176s 145ms/step - accuracy: 0.8530 - loss: 1.2138 - val_accuracy: 0.7649 - val_loss: 1.0678
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8728 - loss: 0.5989
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1165s 144ms/step - accuracy: 0.8728 - loss: 0.5989 - val_accuracy: 0.7684 - val_loss: 1.0236
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8863 - loss: 0.5027
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1182s 146ms/step - accuracy: 0.8863 - loss: 0.5027 - val_accuracy: 0.7731 - val_loss: 1.0198
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8992 - loss: 0.4425
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1178s 145ms/step - accuracy: 0.8992 - loss: 0.4425 - val_accuracy: 0.7741 - val_loss: 1.0186
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 133ms/step - accuracy: 0.9058 - loss: 0.4093
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1212s 150ms/step - accuracy: 0.9058 - loss: 0.4093 - val_accuracy: 0.7743 - val_loss: 1.0282
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 133ms/step - accuracy: 0.9114 - loss: 0.3789
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1206s 149ms/step - accuracy: 0.9114 - loss: 0.3789 - val_accuracy: 0.7712 - val_loss: 1.0385
+Epoch 8/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.9167 - loss: 0.3527
+Epoch 8: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_08.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1171s 145ms/step - accuracy: 0.9167 - loss: 0.3527 - val_accuracy: 0.7716 - val_loss: 1.0491
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 132ms/step - accuracy: 0.5381 - loss: 3.5243
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1218s 149ms/step - accuracy: 0.5381 - loss: 3.5242 - val_accuracy: 0.7561 - val_loss: 1.8321
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8500 - loss: 1.1987
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1198s 148ms/step - accuracy: 0.8500 - loss: 1.1987 - val_accuracy: 0.7591 - val_loss: 1.0681
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8648 - loss: 0.5973
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1182s 146ms/step - accuracy: 0.8648 - loss: 0.5973 - val_accuracy: 0.7607 - val_loss: 1.0301
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 139ms/step - accuracy: 0.8732 - loss: 0.5090
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1259s 155ms/step - accuracy: 0.8732 - loss: 0.5090 - val_accuracy: 0.7603 - val_loss: 1.0324
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8807 - loss: 0.4627
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1177s 145ms/step - accuracy: 0.8807 - loss: 0.4627 - val_accuracy: 0.7613 - val_loss: 1.0368
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8870 - loss: 0.4273
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1171s 145ms/step - accuracy: 0.8870 - loss: 0.4273 - val_accuracy: 0.7606 - val_loss: 1.0410
+
+Trial 3 Complete [04h 38m 23s]
+val_accuracy: 0.7678086459636688
+
+Best val_accuracy So Far: 0.7683796286582947
+Total elapsed time: 10h 16m 24s
+
+Search: Running Trial #4
+
+Value             |Best Value So Far |Hyperparameter
+448               |448               |units
+0.4               |0.3               |dropout
+5.6777e-05        |8.0391e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 133ms/step - accuracy: 0.7382 - loss: 2.3361
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1231s 151ms/step - accuracy: 0.7382 - loss: 2.3360 - val_accuracy: 0.7678 - val_loss: 1.0283
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8850 - loss: 0.5007
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1190s 147ms/step - accuracy: 0.8850 - loss: 0.5007 - val_accuracy: 0.7696 - val_loss: 1.0154
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8979 - loss: 0.4225
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1187s 147ms/step - accuracy: 0.8979 - loss: 0.4225 - val_accuracy: 0.7698 - val_loss: 1.0332
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.9090 - loss: 0.3704
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1184s 146ms/step - accuracy: 0.9090 - loss: 0.3704 - val_accuracy: 0.7684 - val_loss: 1.0492
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.9176 - loss: 0.3315
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1166s 144ms/step - accuracy: 0.9176 - loss: 0.3315 - val_accuracy: 0.7682 - val_loss: 1.0696
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.7333 - loss: 2.3429
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1202s 147ms/step - accuracy: 0.7334 - loss: 2.3428 - val_accuracy: 0.7717 - val_loss: 1.0144
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8848 - loss: 0.5042
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1166s 144ms/step - accuracy: 0.8848 - loss: 0.5042 - val_accuracy: 0.7694 - val_loss: 1.0218
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8972 - loss: 0.4251
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1162s 143ms/step - accuracy: 0.8972 - loss: 0.4251 - val_accuracy: 0.7697 - val_loss: 1.0257
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 139ms/step - accuracy: 0.9090 - loss: 0.3687
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1256s 155ms/step - accuracy: 0.9090 - loss: 0.3687 - val_accuracy: 0.7696 - val_loss: 1.0476
+
+Trial 4 Complete [02h 59m 10s]
+val_accuracy: 0.7707407474517822
+
+Best val_accuracy So Far: 0.7707407474517822
+Total elapsed time: 13h 15m 34s
+
+Search: Running Trial #5
+
+Value             |Best Value So Far |Hyperparameter
+128               |448               |units
+0.3               |0.4               |dropout
+4.8193e-05        |5.6777e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.5476 - loss: 3.1833
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1196s 146ms/step - accuracy: 0.5476 - loss: 3.1832 - val_accuracy: 0.7457 - val_loss: 1.1954
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8455 - loss: 0.7462
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1159s 143ms/step - accuracy: 0.8455 - loss: 0.7462 - val_accuracy: 0.7574 - val_loss: 1.0490
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8713 - loss: 0.5299
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1173s 145ms/step - accuracy: 0.8713 - loss: 0.5299 - val_accuracy: 0.7587 - val_loss: 1.0510
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8820 - loss: 0.4589
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1174s 145ms/step - accuracy: 0.8820 - loss: 0.4589 - val_accuracy: 0.7606 - val_loss: 1.0602
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8941 - loss: 0.4076
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1170s 144ms/step - accuracy: 0.8941 - loss: 0.4076 - val_accuracy: 0.7630 - val_loss: 1.0715
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.5877 - loss: 3.1510
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1191s 146ms/step - accuracy: 0.5877 - loss: 3.1509 - val_accuracy: 0.7681 - val_loss: 1.1534
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8693 - loss: 0.6920
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1191s 147ms/step - accuracy: 0.8693 - loss: 0.6919 - val_accuracy: 0.7699 - val_loss: 1.0276
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8847 - loss: 0.5008
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1183s 146ms/step - accuracy: 0.8847 - loss: 0.5008 - val_accuracy: 0.7672 - val_loss: 1.0411
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8934 - loss: 0.4416
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1191s 147ms/step - accuracy: 0.8934 - loss: 0.4416 - val_accuracy: 0.7664 - val_loss: 1.0515
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.9032 - loss: 0.3955
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1182s 146ms/step - accuracy: 0.9032 - loss: 0.3955 - val_accuracy: 0.7670 - val_loss: 1.0622
+
+Trial 5 Complete [03h 16m 56s]
+val_accuracy: 0.7664814889431
+
+Best val_accuracy So Far: 0.7707407474517822
+Total elapsed time: 16h 32m 31s
+
+Search: Running Trial #6
+
+Value             |Best Value So Far |Hyperparameter
+320               |448               |units
+0.4               |0.4               |dropout
+0.00075157        |5.6777e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.7062 - loss: 1.4960
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1205s 147ms/step - accuracy: 0.7062 - loss: 1.4960 - val_accuracy: 0.6933 - val_loss: 1.2745
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.7542 - loss: 1.0227
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1201s 148ms/step - accuracy: 0.7542 - loss: 1.0227 - val_accuracy: 0.7042 - val_loss: 1.2002
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 126ms/step - accuracy: 0.7723 - loss: 0.9152
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1152s 142ms/step - accuracy: 0.7723 - loss: 0.9152 - val_accuracy: 0.7098 - val_loss: 1.1512
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.7872 - loss: 0.8286
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1164s 144ms/step - accuracy: 0.7872 - loss: 0.8286 - val_accuracy: 0.7221 - val_loss: 1.0683
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8029 - loss: 0.7530
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1196s 148ms/step - accuracy: 0.8029 - loss: 0.7530 - val_accuracy: 0.7204 - val_loss: 1.1084
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8127 - loss: 0.7055
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1174s 145ms/step - accuracy: 0.8127 - loss: 0.7055 - val_accuracy: 0.7303 - val_loss: 1.0715
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8235 - loss: 0.6645
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1194s 147ms/step - accuracy: 0.8235 - loss: 0.6645 - val_accuracy: 0.7254 - val_loss: 1.1219
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.7000 - loss: 1.4973
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1204s 147ms/step - accuracy: 0.7000 - loss: 1.4973 - val_accuracy: 0.6940 - val_loss: 1.2676
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.7544 - loss: 1.0283
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1179s 146ms/step - accuracy: 0.7544 - loss: 1.0283 - val_accuracy: 0.7099 - val_loss: 1.1666
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.7718 - loss: 0.9174
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1192s 147ms/step - accuracy: 0.7718 - loss: 0.9174 - val_accuracy: 0.7095 - val_loss: 1.1507
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.7876 - loss: 0.8271
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1168s 144ms/step - accuracy: 0.7876 - loss: 0.8271 - val_accuracy: 0.7165 - val_loss: 1.1104
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8040 - loss: 0.7514
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1170s 144ms/step - accuracy: 0.8040 - loss: 0.7514 - val_accuracy: 0.7214 - val_loss: 1.0926
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8138 - loss: 0.7005
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1189s 147ms/step - accuracy: 0.8138 - loss: 0.7005 - val_accuracy: 0.7195 - val_loss: 1.0956
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8257 - loss: 0.6556
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1189s 147ms/step - accuracy: 0.8257 - loss: 0.6556 - val_accuracy: 0.7259 - val_loss: 1.0988
+Epoch 8/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8361 - loss: 0.6192
+Epoch 8: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_08.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1180s 146ms/step - accuracy: 0.8361 - loss: 0.6192 - val_accuracy: 0.7250 - val_loss: 1.1151
+
+Trial 6 Complete [04h 56m 02s]
+val_accuracy: 0.7281018495559692
+
+Best val_accuracy So Far: 0.7707407474517822
+Total elapsed time: 21h 28m 32s
+
+Search: Running Trial #7
+
+Value             |Best Value So Far |Hyperparameter
+64                |448               |units
+0.3               |0.4               |dropout
+0.0007368         |5.6777e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 134ms/step - accuracy: 0.5896 - loss: 2.0276
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1240s 152ms/step - accuracy: 0.5896 - loss: 2.0275 - val_accuracy: 0.6867 - val_loss: 1.3045
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 132ms/step - accuracy: 0.7405 - loss: 1.1591
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1199s 148ms/step - accuracy: 0.7405 - loss: 1.1591 - val_accuracy: 0.6932 - val_loss: 1.3167
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 132ms/step - accuracy: 0.7554 - loss: 1.0821
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1202s 148ms/step - accuracy: 0.7554 - loss: 1.0821 - val_accuracy: 0.7035 - val_loss: 1.2633
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.7682 - loss: 1.0253
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1183s 146ms/step - accuracy: 0.7682 - loss: 1.0253 - val_accuracy: 0.7049 - val_loss: 1.2478
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.7789 - loss: 0.9752
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1176s 145ms/step - accuracy: 0.7789 - loss: 0.9752 - val_accuracy: 0.7182 - val_loss: 1.2102
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.7909 - loss: 0.9219
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1178s 145ms/step - accuracy: 0.7909 - loss: 0.9219 - val_accuracy: 0.7176 - val_loss: 1.1910
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 137ms/step - accuracy: 0.7998 - loss: 0.8816
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1245s 154ms/step - accuracy: 0.7998 - loss: 0.8816 - val_accuracy: 0.7184 - val_loss: 1.2162
+Epoch 8/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8094 - loss: 0.8447
+Epoch 8: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_08.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1185s 146ms/step - accuracy: 0.8094 - loss: 0.8447 - val_accuracy: 0.7130 - val_loss: 1.2653
+Epoch 9/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8156 - loss: 0.8104
+Epoch 9: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_09.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1186s 146ms/step - accuracy: 0.8156 - loss: 0.8104 - val_accuracy: 0.7237 - val_loss: 1.2185
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.6110 - loss: 1.9925
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1188s 145ms/step - accuracy: 0.6110 - loss: 1.9925 - val_accuracy: 0.6813 - val_loss: 1.3438
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.7387 - loss: 1.1623
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1171s 145ms/step - accuracy: 0.7387 - loss: 1.1623 - val_accuracy: 0.7008 - val_loss: 1.2688
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.7540 - loss: 1.0889
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1171s 145ms/step - accuracy: 0.7540 - loss: 1.0889 - val_accuracy: 0.7044 - val_loss: 1.2477
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.7683 - loss: 1.0225
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1187s 146ms/step - accuracy: 0.7683 - loss: 1.0225 - val_accuracy: 0.7124 - val_loss: 1.2261
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.7784 - loss: 0.9685
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1168s 144ms/step - accuracy: 0.7784 - loss: 0.9685 - val_accuracy: 0.7089 - val_loss: 1.2151
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 132ms/step - accuracy: 0.7871 - loss: 0.9277
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1200s 148ms/step - accuracy: 0.7871 - loss: 0.9277 - val_accuracy: 0.7127 - val_loss: 1.2309
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.7967 - loss: 0.8864
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1174s 145ms/step - accuracy: 0.7967 - loss: 0.8864 - val_accuracy: 0.7192 - val_loss: 1.1883
+Epoch 8/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8031 - loss: 0.8456
+Epoch 8: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_08.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1177s 145ms/step - accuracy: 0.8031 - loss: 0.8456 - val_accuracy: 0.7187 - val_loss: 1.2138
+Epoch 9/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 126ms/step - accuracy: 0.8127 - loss: 0.8043
+Epoch 9: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_09.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1158s 143ms/step - accuracy: 0.8127 - loss: 0.8043 - val_accuracy: 0.7182 - val_loss: 1.2117
+Epoch 10/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8180 - loss: 0.7813
+Epoch 10: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_10.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1169s 144ms/step - accuracy: 0.8180 - loss: 0.7813 - val_accuracy: 0.7209 - val_loss: 1.2166
+
+Trial 7 Complete [06h 16m 04s]
+val_accuracy: 0.7222993969917297
+
+Best val_accuracy So Far: 0.7707407474517822
+Total elapsed time: 1d 03h 44m 36s
+
+Search: Running Trial #8
+
+Value             |Best Value So Far |Hyperparameter
+192               |448               |units
+0.2               |0.4               |dropout
+1.231e-05         |5.6777e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 125ms/step - accuracy: 0.4089 - loss: 3.7809
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1171s 143ms/step - accuracy: 0.4090 - loss: 3.7808 - val_accuracy: 0.7497 - val_loss: 3.0389
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 133ms/step - accuracy: 0.8359 - loss: 2.5831
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1212s 150ms/step - accuracy: 0.8359 - loss: 2.5831 - val_accuracy: 0.7529 - val_loss: 1.7786
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8451 - loss: 1.3004
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1178s 145ms/step - accuracy: 0.8451 - loss: 1.3004 - val_accuracy: 0.7565 - val_loss: 1.1781
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 137ms/step - accuracy: 0.8542 - loss: 0.7528
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1241s 153ms/step - accuracy: 0.8542 - loss: 0.7528 - val_accuracy: 0.7569 - val_loss: 1.0661
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.8630 - loss: 0.6016
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1193s 147ms/step - accuracy: 0.8630 - loss: 0.6016 - val_accuracy: 0.7586 - val_loss: 1.0420
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8707 - loss: 0.5429
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1177s 145ms/step - accuracy: 0.8707 - loss: 0.5429 - val_accuracy: 0.7653 - val_loss: 1.0308
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8845 - loss: 0.4934
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1167s 144ms/step - accuracy: 0.8845 - loss: 0.4934 - val_accuracy: 0.7678 - val_loss: 1.0224
+Epoch 8/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 126ms/step - accuracy: 0.8917 - loss: 0.4549
+Epoch 8: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_08.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1155s 143ms/step - accuracy: 0.8917 - loss: 0.4549 - val_accuracy: 0.7687 - val_loss: 1.0228
+Epoch 9/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8939 - loss: 0.4372
+Epoch 9: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_09.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1173s 145ms/step - accuracy: 0.8939 - loss: 0.4372 - val_accuracy: 0.7686 - val_loss: 1.0267
+Epoch 10/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8980 - loss: 0.4142
+Epoch 10: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_10.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1183s 146ms/step - accuracy: 0.8980 - loss: 0.4142 - val_accuracy: 0.7680 - val_loss: 1.0292
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.3690 - loss: 3.8049
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1184s 145ms/step - accuracy: 0.3691 - loss: 3.8048 - val_accuracy: 0.7540 - val_loss: 3.0799
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 139ms/step - accuracy: 0.8402 - loss: 2.6283
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1256s 155ms/step - accuracy: 0.8402 - loss: 2.6283 - val_accuracy: 0.7566 - val_loss: 1.8115
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8493 - loss: 1.3259
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1170s 144ms/step - accuracy: 0.8493 - loss: 1.3259 - val_accuracy: 0.7601 - val_loss: 1.1784
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 134ms/step - accuracy: 0.8604 - loss: 0.7409
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1221s 151ms/step - accuracy: 0.8604 - loss: 0.7409 - val_accuracy: 0.7617 - val_loss: 1.0596
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8663 - loss: 0.5925
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1169s 144ms/step - accuracy: 0.8663 - loss: 0.5925 - val_accuracy: 0.7617 - val_loss: 1.0375
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8717 - loss: 0.5372
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1181s 146ms/step - accuracy: 0.8717 - loss: 0.5372 - val_accuracy: 0.7622 - val_loss: 1.0318
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 137ms/step - accuracy: 0.8753 - loss: 0.4986
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1244s 154ms/step - accuracy: 0.8753 - loss: 0.4986 - val_accuracy: 0.7617 - val_loss: 1.0332
+Epoch 8/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 138ms/step - accuracy: 0.8808 - loss: 0.4718
+Epoch 8: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_08.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1263s 156ms/step - accuracy: 0.8808 - loss: 0.4718 - val_accuracy: 0.7627 - val_loss: 1.0357
+Epoch 9/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8847 - loss: 0.4472
+Epoch 9: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_09.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1180s 146ms/step - accuracy: 0.8847 - loss: 0.4472 - val_accuracy: 0.7616 - val_loss: 1.0382
+
+Trial 8 Complete [06h 18m 44s]
+val_accuracy: 0.7656944394111633
+
+Best val_accuracy So Far: 0.7707407474517822
+Total elapsed time: 1d 10h 03m 20s
+
+Search: Running Trial #9
+
+Value             |Best Value So Far |Hyperparameter
+256               |448               |units
+0.4               |0.4               |dropout
+3.1214e-05        |5.6777e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 131ms/step - accuracy: 0.5771 - loss: 3.2710
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1210s 148ms/step - accuracy: 0.5771 - loss: 3.2709 - val_accuracy: 0.7567 - val_loss: 1.2551
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 135ms/step - accuracy: 0.8552 - loss: 0.7727
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1229s 152ms/step - accuracy: 0.8552 - loss: 0.7727 - val_accuracy: 0.7601 - val_loss: 1.0342
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8674 - loss: 0.5418
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1167s 144ms/step - accuracy: 0.8674 - loss: 0.5418 - val_accuracy: 0.7605 - val_loss: 1.0308
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8772 - loss: 0.4768
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1191s 147ms/step - accuracy: 0.8772 - loss: 0.4768 - val_accuracy: 0.7598 - val_loss: 1.0413
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8855 - loss: 0.4316
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1181s 146ms/step - accuracy: 0.8855 - loss: 0.4316 - val_accuracy: 0.7621 - val_loss: 1.0510
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8947 - loss: 0.4015
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1166s 144ms/step - accuracy: 0.8947 - loss: 0.4015 - val_accuracy: 0.7679 - val_loss: 1.0497
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.6115 - loss: 3.2279
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1199s 147ms/step - accuracy: 0.6115 - loss: 3.2278 - val_accuracy: 0.7664 - val_loss: 1.2332
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 127ms/step - accuracy: 0.8659 - loss: 0.7554
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1159s 143ms/step - accuracy: 0.8659 - loss: 0.7554 - val_accuracy: 0.7687 - val_loss: 1.0290
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8807 - loss: 0.5222
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1182s 146ms/step - accuracy: 0.8807 - loss: 0.5222 - val_accuracy: 0.7677 - val_loss: 1.0262
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 128ms/step - accuracy: 0.8890 - loss: 0.4605
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1172s 145ms/step - accuracy: 0.8890 - loss: 0.4605 - val_accuracy: 0.7684 - val_loss: 1.0324
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8969 - loss: 0.4176
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1192s 147ms/step - accuracy: 0.8969 - loss: 0.4176 - val_accuracy: 0.7669 - val_loss: 1.0414
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 126ms/step - accuracy: 0.9034 - loss: 0.3841
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1153s 142ms/step - accuracy: 0.9034 - loss: 0.3841 - val_accuracy: 0.7669 - val_loss: 1.0509
+
+Trial 9 Complete [03h 56m 48s]
+val_accuracy: 0.7682870328426361
+
+Best val_accuracy So Far: 0.7707407474517822
+Total elapsed time: 1d 14h 00m 08s
+
+Search: Running Trial #10
+
+Value             |Best Value So Far |Hyperparameter
+320               |448               |units
+0.4               |0.4               |dropout
+0.00034004        |5.6777e-05        |learning_rate
+
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.7681 - loss: 1.3995
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1203s 147ms/step - accuracy: 0.7681 - loss: 1.3994 - val_accuracy: 0.7369 - val_loss: 1.0967
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 135ms/step - accuracy: 0.8395 - loss: 0.6504
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1225s 151ms/step - accuracy: 0.8395 - loss: 0.6504 - val_accuracy: 0.7454 - val_loss: 1.0662
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 142ms/step - accuracy: 0.8533 - loss: 0.5877
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1282s 158ms/step - accuracy: 0.8533 - loss: 0.5877 - val_accuracy: 0.7487 - val_loss: 1.0595
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 134ms/step - accuracy: 0.8646 - loss: 0.5328
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1215s 150ms/step - accuracy: 0.8646 - loss: 0.5328 - val_accuracy: 0.7450 - val_loss: 1.0522
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 138ms/step - accuracy: 0.8752 - loss: 0.4841
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1257s 155ms/step - accuracy: 0.8752 - loss: 0.4841 - val_accuracy: 0.7434 - val_loss: 1.0902
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 134ms/step - accuracy: 0.8828 - loss: 0.4449
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1221s 151ms/step - accuracy: 0.8828 - loss: 0.4449 - val_accuracy: 0.7468 - val_loss: 1.0771
+Epoch 7/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 140ms/step - accuracy: 0.8921 - loss: 0.4072
+Epoch 7: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_07.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1268s 157ms/step - accuracy: 0.8921 - loss: 0.4072 - val_accuracy: 0.7495 - val_loss: 1.0842
+Epoch 1/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.7629 - loss: 1.4038
+Epoch 1: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_01.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1198s 146ms/step - accuracy: 0.7629 - loss: 1.4037 - val_accuracy: 0.7357 - val_loss: 1.0937
+Epoch 2/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8343 - loss: 0.6562
+Epoch 2: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_02.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1178s 145ms/step - accuracy: 0.8343 - loss: 0.6562 - val_accuracy: 0.7471 - val_loss: 1.0616
+Epoch 3/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8520 - loss: 0.5893
+Epoch 3: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_03.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1182s 146ms/step - accuracy: 0.8520 - loss: 0.5893 - val_accuracy: 0.7457 - val_loss: 1.0518
+Epoch 4/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 130ms/step - accuracy: 0.8637 - loss: 0.5350
+Epoch 4: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_04.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1183s 146ms/step - accuracy: 0.8637 - loss: 0.5350 - val_accuracy: 0.7484 - val_loss: 1.0642
+Epoch 5/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8740 - loss: 0.4847
+Epoch 5: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_05.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1174s 145ms/step - accuracy: 0.8740 - loss: 0.4847 - val_accuracy: 0.7438 - val_loss: 1.0867
+Epoch 6/10
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 0s 129ms/step - accuracy: 0.8841 - loss: 0.4437
+Epoch 6: saving model to /home/quad/retrain_dataset_6000/models/fine_tuned_models/fine_tuned_model_epoch_06.keras
+8100/8100 ━━━━━━━━━━━━━━━━━━━━ 1177s 145ms/step - accuracy: 0.8841 - loss: 0.4438 - val_accuracy: 0.7482 - val_loss: 1.0597
+
+Trial 10 Complete [04h 22m 51s]
+val_accuracy: 0.7489197552204132
+
+Best val_accuracy So Far: 0.7707407474517822
+Total elapsed time: 1d 18h 23m 00s
+/home/quad/CMPE494/.venv/lib/python3.12/site-packages/keras/src/saving/saving_lib.py:719: UserWarning: Skipping variable loading for optimizer 'adam', because it has 2 variables whereas the saved optimizer has 18 variables.
+  saveable.load_own_variables(weights_store.get(inner_path))
+1013/1013 ━━━━━━━━━━━━━━━━━━━━ 141s 134ms/step - accuracy: 0.7688 - loss: 1.0232
+1013/1013 ━━━━━━━━━━━━━━━━━━━━ 148s 146ms/step - accuracy: 0.7866 - loss: 0.9746
+Validation Loss: 1.0143879652023315, Validation Accuracy: 0.7717283964157104
+Test Loss: 1.0398515462875366, Test Accuracy: 0.7683641910552979
+Summary saved to: /home/quad/retrain_dataset_6000/models/fine_tuned_models/tuning_summary.csv
+
+Process finished with exit code 0

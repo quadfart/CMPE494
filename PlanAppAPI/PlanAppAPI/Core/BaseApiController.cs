@@ -1,23 +1,30 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace PlanAppAPI.Core;
-
-public class BaseApiController(IServiceProvider services) : ControllerBase
+namespace PlanAppAPI.Core
 {
-    protected IMediator Mediator { get; set; } = services.GetRequiredService<IMediator>();
-
-    protected ActionResult HandleResult<T>(Result<T>? result)
+    public class BaseApiController : ControllerBase
     {
-        if (result == null) {
-            return NotFound();
+        protected IMediator Mediator { get; }
+
+        public BaseApiController(IMediator mediator)
+        {
+            Mediator = mediator;
         }
 
-        return result.IsSuccess switch
+        protected ActionResult HandleResult<T>(Result<T>? result)
         {
-            true when result.Value != null => this.Ok(new { data = result.Value, }),
-            true when result.Value == null => NotFound(),
-            _ => BadRequest(result.Error)
-        };
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return result.IsSuccess switch
+            {
+                true when result.Value != null => Ok(new { data = result.Value }),
+                true when result.Value == null => NotFound(),
+                _ => BadRequest(result.Error)
+            };
+        }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wgg4idS2KYc=",
+  "dgSpecHash": "VVXhDOMrTgk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sevval\\Documents\\gitHub\\CMPE494\\PlanAppAPI\\Domain\\Domain.csproj",
+  "projectFilePath": "/home/quad/CMPE494/PlanAppAPI/Domain/Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

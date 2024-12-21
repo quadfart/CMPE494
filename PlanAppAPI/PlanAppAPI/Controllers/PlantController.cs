@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PlanAppAPI.Applications.Plant;
 using PlanAppAPI.Core;
@@ -6,7 +7,7 @@ namespace PlanAppAPI.Controllers;
 
 [Produces("application/json")]
 [Route("api/[controller]/[action]")]
-public class PlantController(IServiceProvider services) : BaseApiController(services)
+public class PlantController(IMediator services) : BaseApiController(services)
 { 
     [HttpGet("{id}")]
     public async Task<ActionResult> PlantByIdAsync([FromRoute] int id)
