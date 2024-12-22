@@ -7,6 +7,7 @@ using PlanAppAPI.Applications.SensorData.GetLogBySensorDataId;
 using PlanAppAPI.Applications.SensorData.List;
 using PlanAppAPI.Applications.SensorData.SensorDataById;
 using PlanAppAPI.Applications.SensorData.SensorDataById.Dtos;
+using PlanAppAPI.Applications.SensorData.SensorDataGetByUserId;
 using PlanAppAPI.Applications.SensorData.UpdateSensorData;
 using PlanAppAPI.Applications.SensorData.UpdateSensorData.Dtos;
 using PlanAppAPI.Core;
@@ -52,5 +53,11 @@ public class SensorDataController(IMediator services) : BaseApiController(servic
     public async Task<ActionResult> DeleteSensorDataAsync([FromRoute] int id)
     {
         return HandleResult(await Mediator.Send(new DeleteSensorData.Command { Id = id }));
+    }
+
+    [HttpGet("user/{userId}")]
+    public async Task<ActionResult> GetSensorDataByUserIdAsync([FromRoute] string userId)
+    {
+        return HandleResult(await Mediator.Send(new SensorDataGetByUserId.Command { UserId = userId }));
     }
 }
