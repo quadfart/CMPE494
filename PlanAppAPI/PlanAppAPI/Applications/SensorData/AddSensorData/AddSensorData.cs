@@ -9,7 +9,7 @@ namespace PlanAppAPI.Applications.SensorData.AddSensorData;
 
 public class AddSensorData
 {
-    public class Command:  IRequest<Result<SensorDataViewModel>>
+    public class Command : IRequest<Result<SensorDataViewModel>>
     {
         public required AddSensorDataRequestModel AddSensorDataRequest { get; set; }
     }
@@ -30,14 +30,26 @@ public class AddSensorData
             var tran = await _context.Database.BeginTransactionAsync(cancellationToken);
             try
             {
+                // Validate if the user exists
+                var user = await _context.Users
+                    .FindAsync(new object[] { request.AddSensorDataRequest.UserId }, cancellationToken);
+
+                if (user == null)
+                {
+                    return Result<SensorDataViewModel>.Failure("User not found");
+                }
+
+                // Create the SensorData record
                 var sensorData = new Domain.Tables.SensorData
                 {
                     Status = 1,
+                    UserId = request.AddSensorDataRequest.UserId,
+                    SensorSerialNumber = request.AddSensorDataRequest.SensorSerialNumber
                 };
                 _context.SensorData.Add(sensorData);
                 await _context.SaveChangesAsync(cancellationToken);
 
-
+                // Create the SensorDataLog record
                 var sensorDataLog = new Domain.Tables.SensorDataLog
                 {
                     Temperature = request.AddSensorDataRequest.Temperature,
@@ -45,11 +57,13 @@ public class AddSensorData
                     Timestamp = DateTime.UtcNow,
                     SensorDataId = sensorData.Id,
                 };
-                
+
                 _context.SensorDataLogs.Add(sensorDataLog);
                 await _context.SaveChangesAsync(cancellationToken);
-                
+
+                // Commit the transaction
                 await tran.CommitAsync(cancellationToken);
+
                 return await Task.FromResult(Result<SensorDataViewModel>.Success(new SensorDataViewModel
                 {
                     Id = sensorData.Id
