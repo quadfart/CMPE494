@@ -65,8 +65,9 @@ namespace Persistence.Migrations
                     b.Property<int>("IrrigationAmount")
                         .HasColumnType("integer");
 
-                    b.Property<int>("LightNeed")
-                        .HasColumnType("integer");
+                    b.Property<string>("LightNeed")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("ModTemp")
                         .HasColumnType("integer");
@@ -79,9 +80,8 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("WateringFrequency")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("WateringFrequency")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

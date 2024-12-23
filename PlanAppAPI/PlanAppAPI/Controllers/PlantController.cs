@@ -40,5 +40,15 @@ namespace PlanAppAPI.Controllers
             // If not, return an error message
             return BadRequest(result.Error);
         }
+        [HttpPost]
+        public async Task<ActionResult> PlantPredictionAsync(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Dosya gönderilmedi veya boş dosya!");
+
+            var result = await Mediator.Send(new Prediction.Command { File = file });
+
+            return HandleResult(result);
+        }
     }
 }
