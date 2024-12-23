@@ -18,6 +18,8 @@ dependencies:
   image_picker: any
   shared_preferences: any
   intl: any
+  image: ^3.2.2
+
 
 dev_dependencies:
   flutter_test:

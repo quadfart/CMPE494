@@ -16,13 +16,13 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
 buildscript {
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        // Make sure the AGP version is up-to-date, matching the version for compileSdk 35.
         classpath 'com.android.tools.build:gradle:8.1.0'  // Adjust to at least 8.1.0
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0'  // Adjust to the appropriate version
     }

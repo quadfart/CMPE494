@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'model_test_screen.dart';
 import 'services/sensor_services.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,7 +44,6 @@ class _HomePageState extends State<HomePage> {
       });
     }
   }
-
 
   Future<void> addSensor(String sensorSerialNumber) async {
     final userId = widget.user?['id'];
@@ -121,8 +121,13 @@ class _HomePageState extends State<HomePage> {
                 icon: const Icon(Icons.camera_alt),
                 label: const Text('Identify Your Plant'),
                 onPressed: () {
-                  // Handle plant identification here
-                  debugPrint('Identify plant for sensor $sensorSerial');
+                  // Navigate to the Image Classifier Screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ImageClassifierScreen(),
+                    ),
+                  );
                 },
               )
                   : Row(

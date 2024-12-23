@@ -51,3 +51,10 @@ android {
 flutter {
     source = "../.."
 }
+dependencies {
+    // TensorFlow Lite dependencies
+    implementation 'org.tensorflow:tensorflow-lite:2.10.0'
+    implementation 'org.tensorflow:tensorflow-lite-select-tf-ops:2.10.0'
+
+    // Other dependencies for your project (Flutter and Android dependencies)
+}
