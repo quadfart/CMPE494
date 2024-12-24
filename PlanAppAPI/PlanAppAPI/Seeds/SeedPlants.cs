@@ -8,10 +8,7 @@ public class SeedPlants
 {
     public static async Task InitializeAsync(DataContext context)
     {
-        var seedDataFilePath =
-            Path.Combine(Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.Parent.Parent.FullName,
-                "PlantData.xlsx");
-        Console.WriteLine(seedDataFilePath);
+        var seedDataFilePath = "app/files/PlantData.xlsx";
 
         if (File.Exists(seedDataFilePath))
         {

@@ -10,7 +10,7 @@ public class SeedDiseases
     {
         if (File.Exists("Seeds/JsonData/Diseases.json"))
         {
-            var seedDiseases = JsonConvert.DeserializeObject<List<Disease>>(File.ReadAllText("Seeds/JsonData/Diseases.json"));
+            var seedDiseases = JsonConvert.DeserializeObject<List<Disease>>(File.ReadAllText("app/files/Diseases.json"));
             try
             {
                 if (!context.Diseases.Any() && seedDiseases != null)
