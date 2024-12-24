@@ -5,7 +5,7 @@ import cv2
 from tqdm import tqdm
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-def copy_random_images(src_dir, temp_dir, target_count=6000):
+def copy_random_images(src_dir, temp_dir, target_count=2000):
     """Copy up to target_count random images from each class to a temp directory."""
     os.makedirs(temp_dir, exist_ok=True)
     for class_name in tqdm(os.listdir(src_dir), desc="Copying images"):
@@ -115,10 +115,10 @@ def count_images_per_class(target_dir):
                 print(f"  {class_name}: {image_count}")
 
 if __name__ == "__main__":
-    source_dir = "/home/quad/dataset/train"  # Source directory
-    temp_dir = "/home/quad/6000temp"  # Temporary directory for processing
-    target_dir = "/home/quad/dataset_6000"  # Final target directory
-    target_images_per_class = 6000  # Target images per class
+    source_dir = "/home/quad/disease_dataset/train"  # Source directory
+    temp_dir = "/home/quad/diseasetemp"  # Temporary directory for processing
+    target_dir = "/home/quad/disease_dataset_2000"  # Final target directory
+    target_images_per_class = 2000  # Target images per class
 
     print("Step 1: Copying random images to temp...")
     copy_random_images(source_dir, temp_dir, target_images_per_class)

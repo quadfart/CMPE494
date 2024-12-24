@@ -62,7 +62,7 @@ public class Handler : IRequestHandler<Command, Result<List<DiseasePredictionVie
                 
                 var orderedPredictionResponse = predictionResponse
                     .OrderByDescending(x => x.Value)
-                    .Take(5)
+                    .Take(3)
                     .ToDictionary(x => x.Key, x => x.Value);
 
                 var matchingDiseases = await _context.Diseases

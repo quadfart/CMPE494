@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Load the model
 model = load_model('fine_tuned_model_epoch_08.keras')
-# model_disease = load_model('disease_model.keras')
+model_disease = load_model('disease_model_epoch_6.keras')
 # Define the class labels (you can load these dynamically from your dataset directory)
 class_labels = ['Agave attenuata', 'Anthurium andraeanum', 'Chlorophytum comosum', 'Dianthus carthusianorum',
                 'Dracaena reflexa', 'Epiphyllum oxypetalum', 'Pilea Peperomioides', 'Sedum morganianum',
@@ -24,7 +24,7 @@ class_labels = ['Agave attenuata', 'Anthurium andraeanum', 'Chlorophytum comosum
                 'pelargonium zonale', 'philodendron hederaceum', 'rosa spp', 'salvia rosmarinus', 'schefflera arboricola',
                 'schefflera digitata', 'spathiphyllum spp', 'vanilla planifolia', 'viola tricolor', 'viola x wittockiana',
                 'wisteria sinensis']
-disease_class_labesls = []
+disease_class_labels = ['healthy', 'powdery', 'rust']
 
 # Preprocess the image
 def preprocess_image(image, target_size):
@@ -82,8 +82,8 @@ def predictDisease():
         image = preprocess_image(image, target_size=(224, 224))
 
         # Make predictions
-        predictions =[] #model_disease.predict(image).flatten()
-        results = {class_labels[i]: float(predictions[i]) for i in range(len(class_labels))}
+        predictions = model_disease.predict(image).flatten()
+        results = {disease_class_labels[i]: float(predictions[i]) for i in range(len(disease_class_labels))}
 
         # Format the results to prevent scientific notation and ensure precision
         formatted_results = {label: f"{value:.6f}" for label, value in results.items()}

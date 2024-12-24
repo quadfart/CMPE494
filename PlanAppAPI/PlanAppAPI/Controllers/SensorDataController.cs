@@ -4,6 +4,7 @@ using PlanAppAPI.Applications.Plant;
 using PlanAppAPI.Applications.SensorData.AddSensorData;
 using PlanAppAPI.Applications.SensorData.AddSensorData.Dtos;
 using PlanAppAPI.Applications.SensorData.Delete;
+using PlanAppAPI.Applications.SensorData.DiseasePrediction;
 using PlanAppAPI.Applications.SensorData.GetLogBySensorDataId;
 using PlanAppAPI.Applications.SensorData.List;
 using PlanAppAPI.Applications.SensorData.SensorDataById;
@@ -67,7 +68,7 @@ public class SensorDataController(IMediator services) : BaseApiController(servic
         if (file == null || file.Length == 0)
             return BadRequest("No File!");
 
-        var result = await Mediator.Send(new Prediction.Command { File = file });
+        var result = await Mediator.Send(new DiseasePrediction.Command { File = file });
 
         return HandleResult(result);
     }

@@ -13,11 +13,11 @@ import time
 IMG_SIZE = (224, 224)  # Image input size for the model
 BATCH_SIZE = 128  # Batch size for training and evaluation
 EPOCHS = 10  # Number of epochs for training (set to 10 max)
-train_dir = "/home/quad/dataset_6000/train"
-val_dir = "/home/quad/dataset_6000/val"
-test_dir = "/home/quad/dataset_6000/test"
-model_save_dir = "/home/quad/retrain_dataset_6000/models"
-log_dir = "/home/quad/retrain_dataset_6000/models/logs/fit"
+train_dir = "/home/quad/disease_dataset_2000/train"
+val_dir = "/home/quad/disease_dataset_2000/val"
+test_dir = "/home/quad/disease_dataset_2000/test"
+model_save_dir = "/home/quad/disease_dataset_2000/models"
+log_dir = "/home/quad/disease_dataset_2000/models/logs/fit"
 os.makedirs(log_dir, exist_ok=True)
 os.makedirs(model_save_dir, exist_ok=True)
 

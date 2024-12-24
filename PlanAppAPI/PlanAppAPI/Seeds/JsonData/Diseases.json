@@ -1,2 +1,34 @@
-{
-}
+[
+  {
+    "Name": "healthy",
+    "Symptoms": ["No Action Required"],
+    "Treatments": ["No Action Required"]
+  },
+  {
+    "Name": "powdery",
+    "Symptoms": [
+      "White or gray powdery spots on the surface of leaves, stems, and flowers.",
+      "Infected leaves may become distorted, yellow, or wilted.",
+      "Plants may experience stunted growth or reduced yield."
+    ],
+    "Treatments": [
+      "Remove and destroy infected leaves to prevent further spread.",
+      "Avoid overhead watering to keep the leaves dry.",
+      "Provide adequate spacing between plants to improve air circulation.",
+      "Rotate crops to reduce pathogen buildup in the soil."
+    ]
+  },
+  {
+    "Name": "rust",
+    "Symptoms": [
+      "White or gray powdery spots on the surface of leaves, stems, and flowers.",
+      "Infected leaves may become distorted, yellow, or wilted.",
+      "Plants may experience stunted growth or reduced yield."
+    ],
+    "Treatments": [
+      "Remove and destroy infected plant parts.",
+      "Water plants early in the morning and avoid wetting the foliage.",
+      "Ensure plants are placed in well-ventilated areas with proper spacing."
+    ]
+  }
+]
