@@ -56,9 +56,6 @@ namespace Persistence.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("DiseaseId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("HumidityLevel")
                         .HasColumnType("integer");
 
@@ -85,8 +82,6 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DiseaseId");
-
                     b.ToTable("tblPlants", (string)null);
                 });
 
@@ -97,6 +92,9 @@ namespace Persistence.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("DiseaseId")
+                        .HasColumnType("integer");
 
                     b.Property<int?>("PlantId")
                         .HasColumnType("integer");
@@ -111,6 +109,8 @@ namespace Persistence.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DiseaseId");
 
                     b.HasIndex("PlantId");
 
@@ -174,18 +174,13 @@ namespace Persistence.Migrations
                     b.ToTable("tblUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Tables.Plant", b =>
+            modelBuilder.Entity("Domain.Tables.SensorData", b =>
                 {
                     b.HasOne("Domain.Tables.Disease", "Diseases")
                         .WithMany()
                         .HasForeignKey("DiseaseId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.Navigation("Diseases");
-                });
-
-            modelBuilder.Entity("Domain.Tables.SensorData", b =>
-                {
                     b.HasOne("Domain.Tables.Plant", "Plant")
                         .WithMany()
                         .HasForeignKey("PlantId")
@@ -195,6 +190,8 @@ namespace Persistence.Migrations
                         .WithMany("SensorData")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Diseases");
 
                     b.Navigation("Plant");
 

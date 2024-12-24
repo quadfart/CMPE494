@@ -26,7 +26,6 @@ public class PlantGetByName
             try
             {
                 var plant = await _context.Plants
-                    .Include(x => x.Diseases)
                     .SingleOrDefaultAsync(x => x.ScientificName == request.Name, cancellationToken: cancellationToken)
                     .ConfigureAwait(false);
 

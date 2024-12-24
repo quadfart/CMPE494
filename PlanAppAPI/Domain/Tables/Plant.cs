@@ -10,6 +10,5 @@ public class Plant
     public int WateringFrequency { get; set; }
     public int IrrigationAmount { get; set; }
     public string ScientificName { get; set; }
-    public int? DiseaseId { get; set; } // Nullable, as not all plants have diseases
-    public Disease? Diseases { get; set; }
+
 }

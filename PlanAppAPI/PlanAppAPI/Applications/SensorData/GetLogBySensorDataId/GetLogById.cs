@@ -30,7 +30,6 @@ public class GetLogById
                     .Where(x => x.SensorDataId == request.Id && x.SensorData.Status == 1)
                     .Include(x => x.SensorData)
                     .ThenInclude(x => x.Plant)
-                    .ThenInclude(x => x.Diseases)
                     .Select(x => new SensorDataLogViewModel
                     {
                         Id = x.SensorDataId,

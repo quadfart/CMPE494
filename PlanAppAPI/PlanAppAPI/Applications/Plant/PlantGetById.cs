@@ -26,7 +26,6 @@ public class PlantGetById
             try
             {
                 var plant = await _context.Plants
-                    .Include(x => x.Diseases)
                     .SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken)
                     .ConfigureAwait(false);
 

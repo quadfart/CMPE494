@@ -11,6 +11,7 @@ public class SensorData
 
     public int? PlantId { get; set; } // Nullable, plant assigned to the pot
     public Plant? Plant { get; set; } // Navigation property for EF
-
+    public int? DiseaseId { get; set; } // Nullable, as not all plants have diseases
+    public Disease? Diseases { get; set; }
     public ICollection<SensorDataLog>? SensorDataLogs { get; set; } // Zero or many logs
 }

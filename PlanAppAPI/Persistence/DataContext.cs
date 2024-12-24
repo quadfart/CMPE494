@@ -55,7 +55,7 @@ public class DataContext : DbContext
             .ToTable("tblPlants")
             .HasKey(x => x.Id);
 
-        modelBuilder.Entity<Plant>()
+        modelBuilder.Entity<SensorData>()
             .HasOne(p => p.Diseases)
             .WithMany()
             .HasForeignKey(p => p.DiseaseId)

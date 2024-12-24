@@ -34,7 +34,7 @@ using (var scope = app.Services.CreateScope())
     try {
         var context = services.GetRequiredService<DataContext>();
         await SeedUser.InitializeAsync(context).ConfigureAwait(false);
-        await SeedDiseases.InitializeAsync(context).ConfigureAwait(false);
+        // await SeedDiseases.InitializeAsync(context).ConfigureAwait(false);
         await SeedPlants.InitializeAsync(context).ConfigureAwait(false);
     } catch (Exception ex) {
         var logger = services.GetService<ILogger<Program>>();

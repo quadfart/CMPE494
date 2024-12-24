@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PlanAppAPI.Applications.Plant;
 using PlanAppAPI.Applications.SensorData.AddSensorData;
 using PlanAppAPI.Applications.SensorData.AddSensorData.Dtos;
 using PlanAppAPI.Applications.SensorData.Delete;
@@ -59,5 +60,15 @@ public class SensorDataController(IMediator services) : BaseApiController(servic
     public async Task<ActionResult> GetSensorDataByUserIdAsync([FromRoute] string userId)
     {
         return HandleResult(await Mediator.Send(new SensorDataGetByUserId.Command { UserId = userId }));
+    }
+    [HttpPost]
+    public async Task<ActionResult> DiseasePredictionAsync(IFormFile file)
+    {
+        if (file == null || file.Length == 0)
+            return BadRequest("No File!");
+
+        var result = await Mediator.Send(new Prediction.Command { File = file });
+
+        return HandleResult(result);
     }
 }

@@ -4,36 +4,37 @@ using Newtonsoft.Json;
 using PlanAppAPI.Core;
 using System.Net.Http;
 using System.IO;
+using Domain.Tables;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using PlanAppAPI.Applications.Plant.Model;
+using PlanAppAPI.Applications.SensorData.DiseasePrediction.Model;
 
-namespace PlanAppAPI.Applications.Plant;
+namespace PlanAppAPI.Applications.SensorData.DiseasePrediction;
 
-public class Prediction
+public class DiseasePrediction
 {
-    public class Command : IRequest<Result<List<PlantPredictionViewModel>>>
+    public class Command : IRequest<Result<List<DiseasePredictionViewModel>>>
 {
     public required IFormFile File { get; set; }
 }
 
-public class Handler : IRequestHandler<Command, Result<List<PlantPredictionViewModel>>>
+public class Handler : IRequestHandler<Command, Result<List<DiseasePredictionViewModel>>>
 {
-    private readonly ILogger<Prediction> _logger;
+    private readonly ILogger<DiseasePrediction> _logger;
     private readonly DataContext _context;
 
-    public Handler(ILogger<Prediction> logger, DataContext context)
+    public Handler(ILogger<DiseasePrediction> logger, DataContext context)
     {
         _logger = logger;
         _context = context;
     }
 
-    public async Task<Result<List<PlantPredictionViewModel>>> Handle(Command request, CancellationToken cancellationToken)
+    public async Task<Result<List<DiseasePredictionViewModel>>> Handle(Command request, CancellationToken cancellationToken)
     {
         try
         {
             // API endpoint
-            var apiUrl = "http://localhost:5000/predict";
+            var apiUrl = "http://localhost:5000/predictDisease";
 
             using var httpClient = new HttpClient();
             using var form = new MultipartFormDataContent();
@@ -54,9 +55,9 @@ public class Handler : IRequestHandler<Command, Result<List<PlantPredictionViewM
                 // Parse the API response
                 var content = await response.Content.ReadAsStringAsync();
                 _logger.LogInformation("Prediction Response: {Content}", content);
-                var predictionResponseModel = JsonConvert.DeserializeObject<PredictionResponseModel>(content);
+                var predictionResponseModel = JsonConvert.DeserializeObject<DiseasePredictionResponseModel>(content);
 
-                var predictionResponse = predictionResponseModel.PredictionResponse
+                var predictionResponse = predictionResponseModel.DiseasePredictionResponse
                     .ToDictionary(x => x.Key, x => float.Parse(x.Value));
                 
                 var orderedPredictionResponse = predictionResponse
@@ -64,23 +65,19 @@ public class Handler : IRequestHandler<Command, Result<List<PlantPredictionViewM
                     .Take(5)
                     .ToDictionary(x => x.Key, x => x.Value);
 
-                var matchingPlants = await _context.Plants
-                    .Where(plant => orderedPredictionResponse.Keys.Contains(plant.ScientificName))
+                var matchingDiseases = await _context.Diseases
+                    .Where(disease => orderedPredictionResponse.Keys.Contains(disease.Name))
                     .ToListAsync(cancellationToken);
-                var responseModel = matchingPlants.Select(x => new PlantPredictionViewModel
+                var responseModel = matchingDiseases.Select(x => new DiseasePredictionViewModel
                 {
                     Id = x.Id,
-                    ModTemp = x.ModTemp,
-                    SoilType = x.SoilType,
-                    LightNeed = x.LightNeed,
-                    HumidityLevel = x.HumidityLevel,
-                    WateringFrequency = x.WateringFrequency,
-                    IrrigationAmount = x.IrrigationAmount,
-                    ScientificName = x.ScientificName,
-                    PredictionConfidence = predictionResponse.GetValueOrDefault(x.ScientificName)
-                }).OrderByDescending(x=>x.PredictionConfidence).ToList();
+                    Name = x.Name,
+                    Symptoms = x.Symptoms,
+                    Treatments = x.Treatments,
+                    DiseasePredictionConfidence = predictionResponse.GetValueOrDefault(x.Name)
+                }).OrderByDescending(x=>x.DiseasePredictionConfidence).ToList();
 
-                return Result<List<PlantPredictionViewModel>>.Success(responseModel);
+                return Result<List<DiseasePredictionViewModel>>.Success(responseModel);
             }
             else
             {

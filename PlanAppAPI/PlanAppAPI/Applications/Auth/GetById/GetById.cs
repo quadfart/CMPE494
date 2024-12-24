@@ -27,7 +27,6 @@ public class GetById
             var user = await _context.Users
                 .Include(x => x.SensorData!.Where(x => x.Status == 1))!
                 .ThenInclude(x => x.Plant)
-                .ThenInclude(x => x.Diseases)
                 .SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken)
                 .ConfigureAwait(false);
 

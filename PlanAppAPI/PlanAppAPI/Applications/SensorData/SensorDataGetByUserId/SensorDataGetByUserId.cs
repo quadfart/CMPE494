@@ -28,7 +28,6 @@ public class SensorDataGetByUserId
                 var userId = int.Parse(request.UserId); // Parse if UserId is passed as a string.
                 var sensorDataList = await _context.SensorData
                     .Include(x => x.Plant)
-                    .ThenInclude(x => x.Diseases)
                     .Where(x => x.UserId == userId && x.Status == 1)
                     .ToListAsync(cancellationToken);
 

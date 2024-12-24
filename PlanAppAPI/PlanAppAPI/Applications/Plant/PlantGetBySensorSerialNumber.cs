@@ -29,7 +29,6 @@ namespace PlanAppAPI.Applications.Plant
                     var plant = await _context.SensorData
                         .Where(x => x.SensorSerialNumber == request.SensorSerialNumber)
                         .Include(x => x.Plant) // Include the Plant table to get plant details
-                        .ThenInclude(x => x.Diseases) // If you want to include diseases too
                         .Select(x => x.Plant) // Only select the Plant related to the SensorData
                         .FirstOrDefaultAsync(cancellationToken)
                         .ConfigureAwait(false);

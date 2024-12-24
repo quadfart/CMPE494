@@ -71,6 +71,10 @@ public class UpdateSensorData
                 {
                     updatedSensorData.PlantId = request.UpdateSensorDataRequest.PlantId;
                 }
+                if (request.UpdateSensorDataRequest.DiseaseId != null && request.UpdateSensorDataRequest.DiseaseId != 0)
+                {
+                    updatedSensorData.PlantId = request.UpdateSensorDataRequest.PlantId;
+                }
                 
                 sensorDataLog.SensorData = updatedSensorData;
                 _context.SensorData.Update(sensorDataLog.SensorData);

@@ -12,4 +12,5 @@ public class UpdateSensorDataRequestModel : ISensorData
     public int? UserId { get; set; }
     
     public int? PlantId { get; set; }
+    public int? DiseaseId { get; set; }
 }
