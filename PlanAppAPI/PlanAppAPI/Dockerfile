@@ -20,7 +20,6 @@ RUN dotnet tool install --global dotnet-ef --version 7.0.20
 # PATH değişkenini güncelle
 ENV PATH="$PATH:/root/.dotnet/tools"
 
-# Migration işlemini gerçekleştir
 #RUN dotnet ef database update -p Persistence/Persistence.csproj -s PlanAppAPI/PlanAppAPI.csproj
 
 FROM build AS publish
