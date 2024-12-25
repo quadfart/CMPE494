@@ -34,7 +34,7 @@ public class Handler : IRequestHandler<Command, Result<List<DiseasePredictionVie
         try
         {
             // API endpoint
-            var apiUrl = "http://localhost:5000/predictDisease";
+            var apiUrl = "http://ec2-13-53-214-163.eu-north-1.compute.amazonaws.com/predictDisease";
 
             using var httpClient = new HttpClient();
             using var form = new MultipartFormDataContent();

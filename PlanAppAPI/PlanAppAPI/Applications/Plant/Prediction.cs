@@ -33,7 +33,7 @@ public class Handler : IRequestHandler<Command, Result<List<PlantPredictionViewM
         try
         {
             // API endpoint
-            var apiUrl = "http://localhost:5000/predict";
+            var apiUrl = "http://ec2-13-53-214-163.eu-north-1.compute.amazonaws.com:5000/predict";
 
             using var httpClient = new HttpClient();
             using var form = new MultipartFormDataContent();
