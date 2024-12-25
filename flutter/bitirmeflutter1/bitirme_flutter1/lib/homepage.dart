@@ -15,11 +15,12 @@ class _HomePageState extends State<HomePage> {
   late final SensorService sensorService;
   List<dynamic> sensorData = [];
   bool isLoading = true;
+  int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    sensorService = SensorService('http://192.168.31.100:5273'); // Replace with your API base URL
+    sensorService = SensorService('http://ec2-13-53-214-163.eu-north-1.compute.amazonaws.com:80'); // Replace with your API base URL
     fetchSensorData();
   }
 
@@ -97,10 +98,34 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('My Sensors')),
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/logo.png', // Logo file path
+              height: 50, // Adjusted height for better visibility
+            ),
+            const SizedBox(width: 8),
+            const Text(
+              'My Sensors',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        centerTitle: true,
+      ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : sensorData.isEmpty
@@ -118,10 +143,16 @@ class _HomePageState extends State<HomePage> {
               title: Text('Sensor: $sensorSerial'),
               trailing: plantId == null
                   ? ElevatedButton.icon(
-                icon: const Icon(Icons.camera_alt),
+                icon: const Icon(
+                  Icons.camera_alt,
+                  color: Colors.white, // Changed icon color to white
+                ),
                 label: const Text('Identify Your Plant'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green[800], // Dark green
+                  foregroundColor: Colors.white,
+                ),
                 onPressed: () {
-                  // Navigate to the Image Classifier Screen
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -147,7 +178,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                     onChanged: (value) {
-                      // Handle dropdown actions here
                       debugPrint('Dropdown action: $value');
                     },
                     hint: const Text('Actions'),
@@ -160,7 +190,27 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: showAddSensorDialog,
+        backgroundColor: Colors.green, // Changed to green
         child: const Icon(Icons.add),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera),
+            label: 'Camera',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.green[800], // Dark green for selected item
+        onTap: _onItemTapped,
       ),
     );
   }
