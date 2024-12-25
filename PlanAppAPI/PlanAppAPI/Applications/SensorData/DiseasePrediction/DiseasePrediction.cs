@@ -34,7 +34,7 @@ public class Handler : IRequestHandler<Command, Result<List<DiseasePredictionVie
         try
         {
             // API endpoint
-            var apiUrl = "http://flask-api:5000/predictDisease";
+            var apiUrl = "http://cmpe494-flask-api-1:5000/predictDisease";
 
             using var httpClient = new HttpClient();
             using var form = new MultipartFormDataContent();

@@ -33,7 +33,7 @@ public class Handler : IRequestHandler<Command, Result<List<PlantPredictionViewM
         try
         {
             // API endpoint
-            var apiUrl = "http://flask-api:5000/predict";
+            var apiUrl = "http://cmpe494-flask-api-1:5000/predict";
 
             using var httpClient = new HttpClient();
             using var form = new MultipartFormDataContent();
