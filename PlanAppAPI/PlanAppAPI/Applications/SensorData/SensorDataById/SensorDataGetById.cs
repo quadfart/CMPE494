@@ -30,6 +30,7 @@ public class SensorDataGetById
             {
                var sensorData = await _context.SensorData
                    .Include(x => x.Plant)
+                   .Include(x=>x.Diseases)
                    .SingleOrDefaultAsync(x => x.Id == request.SensorData.Id && x.Status == 1, cancellationToken: cancellationToken)
                    .ConfigureAwait(false);
 

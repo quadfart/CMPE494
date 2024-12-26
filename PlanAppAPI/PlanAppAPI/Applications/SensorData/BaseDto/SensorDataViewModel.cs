@@ -12,7 +12,4 @@ public class SensorDataViewModel
     
     public int? UserId { get; set; }
     
-    public Domain.Tables.Plant? Plant { get; set; }
-    
-    public User? User { get; set; }
 }
