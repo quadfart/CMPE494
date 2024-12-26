@@ -4,13 +4,10 @@ using PlanAppAPI.Applications.SensorData.BaseDto;
 
 namespace PlanAppAPI.Applications.SensorData.UpdateSensorData.Dtos;
 
-public class UpdateSensorDataRequestModel : ISensorData
+public class UpdateSensorDataRequestModel
 {
     [Required]
     public int Id { get; set; }
-    
-    public int? UserId { get; set; }
-    
     public int? PlantId { get; set; }
     public int? DiseaseId { get; set; }
 }

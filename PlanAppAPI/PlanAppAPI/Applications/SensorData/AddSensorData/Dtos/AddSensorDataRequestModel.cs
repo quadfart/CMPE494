@@ -3,7 +3,7 @@ using PlanAppAPI.Applications.SensorData.BaseDto;
 
 namespace PlanAppAPI.Applications.SensorData.AddSensorData.Dtos;
 
-public class AddSensorDataRequestModel : ISensorData
+public class AddSensorDataRequestModel
 {
     [Required]
     public int UserId { get; set; } // User creating the pot (sensor data)
