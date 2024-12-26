@@ -49,18 +49,6 @@ public class AddSensorData
                 _context.SensorData.Add(sensorData);
                 await _context.SaveChangesAsync(cancellationToken);
 
-                // Create the SensorDataLog record
-                var sensorDataLog = new Domain.Tables.SensorDataLog
-                {
-                    Temperature = request.AddSensorDataRequest.Temperature,
-                    Moisture = request.AddSensorDataRequest.Moisture,
-                    Timestamp = DateTime.UtcNow,
-                    SensorDataId = sensorData.Id,
-                };
-
-                _context.SensorDataLogs.Add(sensorDataLog);
-                await _context.SaveChangesAsync(cancellationToken);
-
                 // Commit the transaction
                 await tran.CommitAsync(cancellationToken);
 

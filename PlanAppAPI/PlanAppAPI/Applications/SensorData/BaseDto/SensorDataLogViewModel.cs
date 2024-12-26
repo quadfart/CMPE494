@@ -9,4 +9,5 @@ public class SensorDataLogViewModel
     public int Moisture { get; set; }
 
     public DateTime Timestamp { get; set; }
+    public int SoilMoisture { get; set; }
 }

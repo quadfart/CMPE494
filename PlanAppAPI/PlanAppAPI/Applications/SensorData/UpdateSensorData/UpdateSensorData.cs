@@ -27,74 +27,65 @@ public class UpdateSensorData
         }
 
         public async Task<Result<SensorDataViewModel>> Handle(Command request, CancellationToken cancellationToken)
+{
+    var tran = await _context.Database.BeginTransactionAsync(cancellationToken);
+    try
+    {
+        var sensorDataLog = await _context.SensorDataLogs
+            .OrderByDescending(x => x.Id)
+            .Include(x => x.SensorData)
+            .LastOrDefaultAsync(x => x.SensorDataId == request.UpdateSensorDataRequest.Id, cancellationToken);
+
+        if (sensorDataLog == null || sensorDataLog.SensorData == null || sensorDataLog.SensorData.Status == 0)
         {
-            var tran = await _context.Database.BeginTransactionAsync(cancellationToken);
-            try
-            {
-                var sensorDataLog = await _context.SensorDataLogs
-                    .OrderByDescending(x => x.Id)
-                    .Include(x => x.SensorData)
-                    .AsNoTracking()
-                    .LastOrDefaultAsync(x => x.SensorDataId == request.UpdateSensorDataRequest.Id, cancellationToken)
-                    .ConfigureAwait(false);
-
-                if (sensorDataLog == null)
-                {
-                    return Result<SensorDataViewModel>.Failure($"Sensor data not found with id {request.UpdateSensorDataRequest.Id}");
-                }
-
-                if (sensorDataLog.SensorData == null || sensorDataLog.SensorData.Status == 0)
-                {
-                    throw new Exception("Sensor data not found");
-                }
-                
-                var updatedSensorData = new Domain.Tables.SensorData
-                {
-                    Id = sensorDataLog.SensorData.Id,
-                    Status = 1
-                };
-                
-                var updatedSensorDataLog = new Domain.Tables.SensorDataLog
-                {
-                    SensorDataId = sensorDataLog.SensorDataId,
-                    Temperature = request.UpdateSensorDataRequest.Temperature,
-                    Moisture = request.UpdateSensorDataRequest.Moisture,
-                    Timestamp = DateTime.UtcNow
-                };
-                
-                if (request.UpdateSensorDataRequest.UserId != null && request.UpdateSensorDataRequest.UserId != 0)
-                {
-                    updatedSensorData.UserId = request.UpdateSensorDataRequest.UserId;
-                }
-                
-                if (request.UpdateSensorDataRequest.PlantId != null && request.UpdateSensorDataRequest.PlantId != 0)
-                {
-                    updatedSensorData.PlantId = request.UpdateSensorDataRequest.PlantId;
-                }
-                if (request.UpdateSensorDataRequest.DiseaseId != null && request.UpdateSensorDataRequest.DiseaseId != 0)
-                {
-                    updatedSensorData.PlantId = request.UpdateSensorDataRequest.PlantId;
-                }
-                
-                sensorDataLog.SensorData = updatedSensorData;
-                _context.SensorData.Update(sensorDataLog.SensorData);
-                await _context.SaveChangesAsync(cancellationToken);
-                
-                _context.SensorDataLogs.Add(updatedSensorDataLog);
-                await _context.SaveChangesAsync(cancellationToken);
-                
-                await tran.CommitAsync(cancellationToken);
-                return await Task.FromResult(Result<SensorDataViewModel>.Success(new SensorDataViewModel
-                {
-                    Id = sensorDataLog.SensorData.Id
-                }));
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e, $"Error while updating sensor data {request.UpdateSensorDataRequest.Id}");
-                await tran.RollbackAsync(cancellationToken);
-                return Result<SensorDataViewModel>.Failure($"Error while updatind sensor data {request.UpdateSensorDataRequest.Id}: {e.Message}");
-            }
+            throw new Exception("Sensor data not found");
         }
+
+        var existingSensorData = await _context.SensorData
+            .FirstOrDefaultAsync(x => x.Id == sensorDataLog.SensorData.Id, cancellationToken);
+
+        if (existingSensorData == null)
+        {
+            throw new Exception("Sensor data not found");
+        }
+
+        // Update fields
+
+        if (request.UpdateSensorDataRequest.PlantId != null && request.UpdateSensorDataRequest.PlantId != 0)
+        {
+            existingSensorData.PlantId = request.UpdateSensorDataRequest.PlantId;
+        }
+
+        if (request.UpdateSensorDataRequest.DiseaseId != null && request.UpdateSensorDataRequest.DiseaseId != 0)
+        {
+            existingSensorData.DiseaseId = request.UpdateSensorDataRequest.DiseaseId;
+        }
+
+        existingSensorData.Status = 1;
+
+        var updatedSensorDataLog = new Domain.Tables.SensorDataLog
+        {
+            SensorDataId = sensorDataLog.SensorDataId,
+            Timestamp = DateTime.UtcNow
+        };
+
+        _context.SensorData.Update(existingSensorData);
+        _context.SensorDataLogs.Add(updatedSensorDataLog);
+
+        await _context.SaveChangesAsync(cancellationToken);
+        await tran.CommitAsync(cancellationToken);
+
+        return Result<SensorDataViewModel>.Success(new SensorDataViewModel
+        {
+            Id = existingSensorData.Id
+        });
+    }
+    catch (Exception e)
+    {
+        _logger.LogError(e, $"Error while updating sensor data {request.UpdateSensorDataRequest.Id}");
+        await tran.RollbackAsync(cancellationToken);
+        return Result<SensorDataViewModel>.Failure($"Error while updating sensor data {request.UpdateSensorDataRequest.Id}: {e.Message}");
+    }
+}
     }
 }

@@ -34,6 +34,7 @@ public class GetLogById
                     {
                         Id = x.SensorDataId,
                         Temperature = x.Temperature,
+                        SoilMoisture = x.SoilMoisture,
                         Moisture = x.Moisture,
                         Timestamp = x.Timestamp,
                     })
