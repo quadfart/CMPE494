@@ -54,7 +54,9 @@ public class AddSensorData
 
                 return await Task.FromResult(Result<SensorDataViewModel>.Success(new SensorDataViewModel
                 {
-                    Id = sensorData.Id
+                    Id = sensorData.Id,
+                    SensorSerialNumber = sensorData.SensorSerialNumber,
+                    UserId = sensorData.UserId
                 }));
             }
             catch (Exception e)

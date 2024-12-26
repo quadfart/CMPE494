@@ -27,6 +27,7 @@ public class ListSensorData
                 var sensorData = await _context.SensorData
                     .Where(x => x.Status == 1)
                     .Include(x => x.Plant)
+                    .Include(x=>x.Diseases)
                     .ToListAsync(cancellationToken: cancellationToken)
                     .ConfigureAwait(false);
 
