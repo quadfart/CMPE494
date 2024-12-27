@@ -480,20 +480,10 @@
       },
       "AddSensorDataRequestModel": {
         "required": [
-          "moisture",
-          "temperature",
           "userId"
         ],
         "type": "object",
         "properties": {
-          "temperature": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "moisture": {
-            "type": "integer",
-            "format": "int32"
-          },
           "userId": {
             "type": "integer",
             "format": "int32"
@@ -569,28 +559,13 @@
       },
       "UpdateSensorDataRequestModel": {
         "required": [
-          "id",
-          "moisture",
-          "temperature"
+          "id"
         ],
         "type": "object",
         "properties": {
-          "temperature": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "moisture": {
-            "type": "integer",
-            "format": "int32"
-          },
           "id": {
             "type": "integer",
             "format": "int32"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           },
           "plantId": {
             "type": "integer",
