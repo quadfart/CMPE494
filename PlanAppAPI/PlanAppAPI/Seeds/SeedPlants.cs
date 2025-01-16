@@ -14,7 +14,7 @@ public class SeedPlants
 
         if (!File.Exists(seedDataFilePath))
         {
-            Console.WriteLine("PlantData.xlsx not found. Seeding skipped.");
+            Console.WriteLine("PlantDataNew.xlsx not found. Seeding skipped.");
             return;
         }
 
