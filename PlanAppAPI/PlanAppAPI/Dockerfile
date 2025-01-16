@@ -29,5 +29,5 @@ RUN dotnet publish "PlanAppAPI/PlanAppAPI.csproj" -c $BUILD_CONFIGURATION -o /ap
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY PlanAppAPI/PlanAppAPI/Seeds/PlantDataNew.xlsx .
+COPY PlanAppAPI/PlanAppAPI/Seeds/PlantDataNew.xlsx ./files
 ENTRYPOINT ["dotnet", "PlanAppAPI.dll"]
