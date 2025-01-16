@@ -8,9 +8,9 @@ public class SeedPlants
 {
     public static async Task InitializeAsync(DataContext context)
     {
-        var seedDataFilePath = Path.Combine(Directory.GetCurrentDirectory(), "files", "PlantData.xlsx");
+        var seedDataFilePath = Path.Combine(Directory.GetCurrentDirectory(), "files", "PlantDataNew.xlsx");
 
-        Console.WriteLine($"Looking for PlantData.xlsx at: {seedDataFilePath}");
+        Console.WriteLine($"Looking for PlantDataNew.xlsx at: {seedDataFilePath}");
 
         if (!File.Exists(seedDataFilePath))
         {
